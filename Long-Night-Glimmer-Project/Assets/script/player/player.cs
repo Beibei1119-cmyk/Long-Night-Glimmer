@@ -76,4 +76,9 @@ public class player : MonoBehaviour
 
 
     }
+
+    public bool IsMoving()
+    {
+        return isMoving;
+    }
 }
