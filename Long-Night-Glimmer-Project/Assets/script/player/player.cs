@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using TMPro;
 using UnityEngine;
 
 public class player : MonoBehaviour
@@ -13,7 +14,7 @@ public class player : MonoBehaviour
 
     private Animator[] animators;
     private bool isMoving;
-
+    private bool inputDisable;
 
     private void Awake()
     {
@@ -23,12 +24,53 @@ public class player : MonoBehaviour
 
     }
 
+    private void OnEnable()
+    {
+        EventHandler.BeforeSceneUnloadEvent += OnBeforeSceneUnloadEvent;
+        EventHandler.AfterSceneLoadEvent += OnAfterSceneLoadEvent;
+        EventHandler.MoveToPosition += OnMoveToPosition;
+
+    }
+
+    private void OnDisable()
+    {
+        EventHandler.BeforeSceneUnloadEvent -= OnBeforeSceneUnloadEvent;
+        EventHandler.AfterSceneLoadEvent -= OnAfterSceneLoadEvent;
+        EventHandler.MoveToPosition -= OnMoveToPosition;
+
+    }
+
+    private void OnMoveToPosition(Vector3 targetPosition)
+    {
+        transform.position = targetPosition;
+    }
+
+    private void OnAfterSceneLoadEvent()
+    {
+        inputDisable = false;
+    }
+
+
+    private void OnBeforeSceneUnloadEvent()
+    {
+        inputDisable = true;
+    }
+
+
+
+
     private void Update()
     {
-
-        PlayerInput();//移动输入
+        if (inputDisable == false)
+        {
+            PlayerInput();//移动输入
+        }
         SwitchAnimation();//切换动画
+
+
     }
+
+
     private void PlayerInput()//移动输入
     {
         //if(inputY == 0)

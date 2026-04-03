@@ -1,25 +1,28 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
-
 public class SwitchBounds : MonoBehaviour
 {
-
-    private void Start()
+    private void OnEnable()
     {
-        SwitchConfinerShape();
+        EventHandler.AfterSceneLoadEvent += SwitchConfinerShape;
     }
-    private void SwitchConfinerShape()//…Ë÷√…„œÒª˙±ﬂΩÁ
+
+    private void OnDisable()
     {
-        PolygonCollider2D confinerShape = GameObject.FindGameObjectWithTag("BoundsConfiner").GetComponent<PolygonCollider2D>();
+        EventHandler.AfterSceneLoadEvent -= SwitchConfinerShape;
 
-        CinemachineConfiner confiner = GetComponent<CinemachineConfiner>();
+    }
 
-        //The 2D shape within which the camera is to be contained.
+
+    public void SwitchConfinerShape()
+    {
+         PolygonCollider2D confinerShape = GameObject.FindGameObjectWithTag("BoundsConfiner").GetComponent<PolygonCollider2D>();
+         CinemachineConfiner confiner = GetComponent<CinemachineConfiner>();
         confiner.m_BoundingShape2D = confinerShape;
-
-        //Call this if the bounding shape's points change at runtime
-        confiner.InvalidatePathCache();//«Â≥˝ª∫¥Ê
+        confiner.InvalidatePathCache();
+        
     }
 }
