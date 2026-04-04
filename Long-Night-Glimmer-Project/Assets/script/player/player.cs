@@ -16,6 +16,11 @@ public class player : MonoBehaviour
     private bool isMoving;
     private bool inputDisable;
 
+    // ========== 人物移动边界相关 ==========
+    private PolygonCollider2D boundsCollider;  // 改用 PolygonCollider2D
+    private bool hasBounds = false;
+    // ===================================
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -48,6 +53,10 @@ public class player : MonoBehaviour
     private void OnAfterSceneLoadEvent()
     {
         inputDisable = false;
+
+        // ========== 人物移动边界相关-场景加载后刷新边界 ==========
+        UpdatePlayerBounds();
+        // ===========================================
     }
 
 
@@ -61,6 +70,12 @@ public class player : MonoBehaviour
 
     private void Update()
     {
+
+        // ==========人物移动边界相关-每帧更新边界 ==========
+        UpdatePlayerBounds();
+        // =====================================
+
+
         if (inputDisable == false)
         {
             PlayerInput();//移动输入
@@ -69,6 +84,25 @@ public class player : MonoBehaviour
 
 
     }
+
+    // ========== 人物移动边界相关-获取当前场景的人物边界 ==========
+    private void UpdatePlayerBounds()
+    {
+        GameObject boundsObj = GameObject.FindGameObjectWithTag("PlayerBounds");
+
+        if (boundsObj != null)
+        {
+            boundsCollider = boundsObj.GetComponent<PolygonCollider2D>();
+            hasBounds = boundsCollider != null;
+        }
+        else
+        {
+            hasBounds = false;
+        }
+    }
+
+    // ===============================================
+
 
 
     private void PlayerInput()//移动输入
@@ -97,7 +131,38 @@ public class player : MonoBehaviour
 
     private void Movement()//玩家移动
     {
-        rb.MovePosition(rb.position + movementInput * speed * Time.deltaTime);
+        //rb.MovePosition(rb.position + movementInput * speed * Time.deltaTime);
+        Vector3 newPosition = rb.position + movementInput * speed * Time.deltaTime;
+
+        if (hasBounds && boundsCollider != null)
+        {
+            // 获取脚底碰撞体
+            Collider2D footCol = GetComponent<Collider2D>();
+            if (footCol != null)
+            {
+                Vector2 footOffset = footCol.offset;
+
+                // 计算脚底目标位置
+                Vector2 targetFootPos = (Vector2)newPosition + footOffset;
+
+                // 检查脚底是否在多边形内
+                if (!boundsCollider.OverlapPoint(targetFootPos))
+                {
+                    // 超出边界，不移动
+                    return;
+                }
+            }
+            else
+            {
+                // 如果没有脚底碰撞体，检查中心点
+                if (!boundsCollider.OverlapPoint(newPosition))
+                {
+                    return;
+                }
+            }
+        }
+        // =====================================
+        rb.MovePosition(newPosition);
     }
 
     private void SwitchAnimation()//切换动画
@@ -118,7 +183,7 @@ public class player : MonoBehaviour
 
 
     }
-
+    
     public bool IsMoving()
     {
         return isMoving;

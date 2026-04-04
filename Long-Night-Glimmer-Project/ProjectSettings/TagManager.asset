@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Background
   - BoundsConfiner
+  - PlayerBounds
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Boundary
   - Water
   - UI
   - 
@@ -49,6 +50,6 @@ TagManager:
   - name: instance
     uniqueID: 4050270039
     locked: 0
-  - name: New Layer 3
+  - name: Boundary
     uniqueID: 3098852127
     locked: 0
