@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
 {
+    [Header("锁定状态")]
+    public bool isLocked = true;           // 是否锁着
+    public string lockHint = "这个抽屉锁着呢";  // 锁着时的提示
+
+
     [Header("物品状态")]
     public bool isOpen = false;           // 当前是否打开
 
@@ -22,10 +27,17 @@ public class InteractableObject : MonoBehaviour
     {
         Debug.Log($"点击到了: {gameObject.name}");
         // 切换状态：TODO：当加入解密系统后，解密完成后才能点击开门哦~
+
+        // ========== 新增：检查是否锁着 ==========
+        if (isLocked)
+        {
+            UIManager.Instance.ShowHint(lockHint);
+            return;  // 锁着，不能继续
+        }
+        // =====================================
+
         isOpen = !isOpen;
         UpdateVisual();
-
-
         // 播放音效（如果有）
         if (openSound != null)
         {
@@ -42,4 +54,15 @@ public class InteractableObject : MonoBehaviour
         if (openState != null)
             openState.SetActive(isOpen);
     }
+
+
+    // ========== 新增：解锁方法（被钥匙调用） ==========
+    public void Unlock()
+    {
+        isLocked = false;
+        UIManager.Instance.ShowHint($"{gameObject.name} 已解锁");
+    }
+    // ===============================================
+
+
 }
