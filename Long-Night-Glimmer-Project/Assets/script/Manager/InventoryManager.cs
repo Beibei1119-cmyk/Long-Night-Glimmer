@@ -41,11 +41,8 @@ public class InventoryManager : MonoBehaviour
         items.Add(itemName);
         Debug.Log($"获得: {itemName}");
 
-        // 如果这是第一个物品，选中它
-        if (items.Count == 1)
-        {
-            selectedIndex = 0;
-        }
+        // 每次捡起新物品，都自动选中它（最后一个）
+        selectedIndex = items.Count - 1;
 
         RefreshUI();
     }
