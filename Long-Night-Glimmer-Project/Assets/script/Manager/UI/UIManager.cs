@@ -17,6 +17,12 @@ public class UIManager : MonoBehaviour
 
     public Sprite defaultIcon;
 
+    // ========== 新增：密码面板 ==========
+    [Header("密码面板")]
+    public PasswordPanel passwordPanel;
+    // =================================
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -104,4 +110,20 @@ public class UIManager : MonoBehaviour
     {
         hotbarIcon.sprite = Resources.Load<Sprite>($"Icons/{itemName}");
     }
+
+
+    // ========== 新增：显示密码面板 ==========
+    public void ShowPasswordPanel(InteractableObject target)
+    {
+        Debug.Log($"ShowPasswordPanel 被调用, target={target?.name}");
+        if (passwordPanel != null)
+        {
+            passwordPanel.OpenPanel(target);
+        }
+        else
+        {
+            Debug.LogError("PasswordPanel 未赋值！");
+        }
+    }
+    // =================================
 }
