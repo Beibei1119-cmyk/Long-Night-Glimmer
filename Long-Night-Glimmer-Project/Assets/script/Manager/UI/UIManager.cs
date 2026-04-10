@@ -5,6 +5,10 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
+    //[Header("拖拽图片")]
+    //public Sprite keyDragSprite;  // 钥匙拖拽时的图片
+    //public Sprite gemDragSprite;  // 发夹拖拽时的图片
+
     [Header("提示面板")]
     public GameObject hintPanel;
     public Text hintText;
@@ -17,7 +21,7 @@ public class UIManager : MonoBehaviour
 
     public Sprite defaultIcon;
 
-    // ========== 新增：密码面板 ==========
+    // ========== 密码面板 ==========
     [Header("密码面板")]
     public PasswordPanel passwordPanel;
     // =================================
@@ -64,35 +68,46 @@ public class UIManager : MonoBehaviour
 
     public void RefreshHotbar()
     {
-        if (hotbarIcon == null)
+        //Debug.Log($"[UIManager] RefreshHotbar 开始");
+
+        if (hotbarIcon == null || hotbarName == null)
         {
-            Debug.LogWarning("hotbarIcon 未赋值");
-            return;
-        }
-        if (hotbarName == null)
-        {
-            Debug.LogWarning("hotbarName 未赋值");
+            Debug.LogWarning("[UIManager] hotbarIcon 或 hotbarName 未赋值");
             return;
         }
 
         string currentItem = InventoryManager.Instance.CurrentItem;
+        //Debug.Log($"[UIManager] currentItem = {currentItem ?? "null"}");
 
         if (string.IsNullOrEmpty(currentItem))
         {
+            //Debug.Log("[UIManager] 清空快捷栏显示");
+
+            // ========== 清空显示 ==========
             hotbarIcon.sprite = null;
             hotbarIcon.color = new Color(1, 1, 1, 0);
             hotbarName.text = "";
+
+            // 移除拖拽脚本
+            DragableItem drag = hotbarIcon.GetComponent<DragableItem>();
+            if (drag != null)
+            {
+                //Debug.Log("[UIManager] 移除旧的 DragableItem 脚本");
+                Destroy(drag);
+            }
+            // ============================
         }
         else
         {
+            //Debug.Log($"[UIManager] 显示物品: {currentItem}");
+
+            // ========== 显示物品 ==========
             hotbarIcon.color = new Color(1, 1, 1, 1);
             hotbarName.text = currentItem;
 
+            // 加载图标
             Sprite icon = Resources.Load<Sprite>($"Icons/{currentItem}");
-
-            // ===== 只有这一行关键调试 =====
-            Debug.Log($"加载图片: Icons/{currentItem} -> {(icon != null ? "成功" : "失败")}");
-            // ==============================
+            //Debug.Log($"[UIManager] 加载图片：Icons/{currentItem} -> {(icon != null ? "成功" : "失败")}");
 
             if (icon != null)
             {
@@ -103,8 +118,24 @@ public class UIManager : MonoBehaviour
                 hotbarIcon.sprite = null;
                 hotbarIcon.color = new Color(1, 0.5f, 0.5f, 1);
             }
+
+            // ========== 先移除旧的拖拽脚本，再添加新的 ==========
+            DragableItem oldDrag = hotbarIcon.GetComponent<DragableItem>();
+            if (oldDrag != null)
+            {
+               
+                Destroy(oldDrag);
+            }
+
+            DragableItem newDrag = hotbarIcon.gameObject.AddComponent<DragableItem>();
+            newDrag.itemName = currentItem;
+            //Debug.Log($"[UIManager] 添加新的 DragableItem 脚本, itemName={currentItem}");
+            // ========================================================
         }
+
+        //Debug.Log("[UIManager] RefreshHotbar 完成");
     }
+
 
     private void SetItemIcon(string itemName)
     {
@@ -112,7 +143,7 @@ public class UIManager : MonoBehaviour
     }
 
 
-    // ========== 新增：显示密码面板 ==========
+    // ========== 显示密码面板 ==========
     public void ShowPasswordPanel(InteractableObject target)
     {
         Debug.Log($"ShowPasswordPanel 被调用, target={target?.name}");

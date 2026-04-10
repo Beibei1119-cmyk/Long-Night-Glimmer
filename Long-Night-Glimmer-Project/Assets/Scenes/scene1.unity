@@ -1039,7 +1039,7 @@ MonoBehaviour:
   lockType: 0
   isLocked: 1
   lockHint: "\u62BD\u5C49\u597D\u50CF\u9501\u7740\u5462...\u9700\u8981\u575A\u786C\u7684\u4E1C\u897F\u6253\u5F00"
-  requiredKey: "\u94DC\u94A5\u5319"
+  requiredKey: "\u53D1\u5939"
   isOpen: 0
   closedState: {fileID: 18360461}
   openState: {fileID: 277978391}

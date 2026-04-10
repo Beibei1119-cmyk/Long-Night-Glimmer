@@ -49,14 +49,34 @@ public class InventoryManager : MonoBehaviour
 
     public void RemoveItem(string itemName)
     {
-        if (items.Contains(itemName))
+        //Debug.Log($"[InventoryManager] RemoveItem 开始: itemName={itemName}");
+        //Debug.Log($"[InventoryManager] 移除前背包: [{string.Join(", ", items)}], selectedIndex={selectedIndex}");
+
+        for (int i = 0; i < items.Count; i++)
         {
-            items.Remove(itemName);
-            if (selectedIndex >= items.Count)
+            if (items[i] == itemName)
             {
-                selectedIndex = items.Count - 1;
+                //Debug.Log($"[InventoryManager] 找到物品在索引: {i}");
+                items.RemoveAt(i);
+
+                // 如果移除的是当前选中的物品
+                if (selectedIndex >= items.Count)
+                {
+                    int oldIndex = selectedIndex;
+                    selectedIndex = items.Count - 1;
+                    //Debug.Log($"[InventoryManager] 调整 selectedIndex: {oldIndex} -> {selectedIndex}");
+                }
+
+                //Debug.Log($"[InventoryManager] 移除后背包: [{string.Join(", ", items)}], selectedIndex={selectedIndex}");
+                Debug.Log($"[InventoryManager] 当前选中物品: {CurrentItem}");
+
+                // ========== 刷新 UI ==========
+                //Debug.Log($"[InventoryManager] 调用 RefreshHotbar");
+                UIManager.Instance.RefreshHotbar();
+                // ============================
+
+                return;
             }
-            RefreshUI();
         }
     }
 

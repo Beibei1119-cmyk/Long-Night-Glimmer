@@ -102,11 +102,30 @@ public class InteractableObject : MonoBehaviour
     // ========== 解锁方法（被钥匙调用） ==========
     public void Unlock()
     {
+        //Debug.Log($"[InteractableObject] Unlock 开始, 物品: {gameObject.name}");
+
         isLocked = false;
-        isOpen = true;  // 解锁后直接打开
+        isOpen = true;
         UpdateVisual();
+
+        //Debug.Log($"[InteractableObject] 状态已更新: isLocked={isLocked}, isOpen={isOpen}");
+
+
         UIManager.Instance.ShowHint($"{gameObject.name} 已解锁并打开");
+        // ========== 注意：这里不要调用 RemoveItem ==========
+        // RemoveItem 会在 DragableItem.OnEndDrag 中调用
+        // ==================================================
+
+        //Debug.Log($"[InteractableObject] Unlock 完成，注意：未调用 RemoveItem");
+
+
+        // 播放音效
+        if (openSound != null)
+        {
+            AudioSource.PlayClipAtPoint(openSound, transform.position);
+        }
     }
+
     // ===============================================
 
     // ========== 新增：锁类型枚举 ==========
@@ -116,5 +135,33 @@ public class InteractableObject : MonoBehaviour
         PasswordLock  // 密码锁
     }
     // =================================
+
+    public bool TryUnlockWithKey(string keyName)
+    {
+
+        //Debug.Log($"[InteractableObject] TryUnlockWithKey: keyName={keyName}, lockType={lockType}, isLocked={isLocked}");
+        if (lockType != LockType.KeyLock)
+        {
+            Debug.Log($"[InteractableObject] 不是钥匙锁，返回 false");
+            return false;
+        }
+
+        if (!isLocked)
+        {
+            Debug.Log($"[InteractableObject] 已经解锁了，返回 false");
+            return false;
+        }
+
+        if (keyName == requiredKey)
+        {
+            //Debug.Log($"[InteractableObject] 钥匙匹配！调用 Unlock()");
+            Unlock();
+            return true;
+        }
+
+        Debug.Log($"[InteractableObject] 钥匙不匹配，需要: {requiredKey}");
+        UIManager.Instance.ShowHint($"这个锁需要 {requiredKey}");
+        return false;
+    }
 
 }
