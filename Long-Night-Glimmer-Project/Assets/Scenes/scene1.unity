@@ -530,6 +530,9 @@ MonoBehaviour:
   closedState: {fileID: 1040797637}
   openState: {fileID: 1377807859}
   correctPassword: 1234
+  insideBackgroundImage: {fileID: 0}
+  hasKey: 1
+  hasClip: 0
   openSound: {fileID: 0}
 --- !u!61 &298158346
 BoxCollider2D:
@@ -1044,6 +1047,9 @@ MonoBehaviour:
   closedState: {fileID: 18360461}
   openState: {fileID: 277978391}
   correctPassword: 1234
+  insideBackgroundImage: {fileID: 21300000, guid: 9881accdb306bb743a0834dd02bb934a, type: 3}
+  hasKey: 1
+  hasClip: 0
   openSound: {fileID: 0}
 --- !u!61 &632833617
 BoxCollider2D:
@@ -1587,7 +1593,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1216328066
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2074,7 +2080,10 @@ MonoBehaviour:
   isOpen: 0
   closedState: {fileID: 720000792}
   openState: {fileID: 571152676}
-  correctPassword: 1234
+  correctPassword: 0112
+  insideBackgroundImage: {fileID: 21300000, guid: c36ac4f1accb2db42aa0781ee91ea9ec, type: 3}
+  hasKey: 0
+  hasClip: 1
   openSound: {fileID: 0}
 --- !u!61 &1584347483
 BoxCollider2D:
@@ -2174,7 +2183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1671871396
 SpriteRenderer:
   m_ObjectHideFlags: 0

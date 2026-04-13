@@ -68,7 +68,7 @@ public class InventoryManager : MonoBehaviour
                 }
 
                 //Debug.Log($"[InventoryManager] 移除后背包: [{string.Join(", ", items)}], selectedIndex={selectedIndex}");
-                Debug.Log($"[InventoryManager] 当前选中物品: {CurrentItem}");
+                //Debug.Log($"[InventoryManager] 当前选中物品: {CurrentItem}");
 
                 // ========== 刷新 UI ==========
                 //Debug.Log($"[InventoryManager] 调用 RefreshHotbar");

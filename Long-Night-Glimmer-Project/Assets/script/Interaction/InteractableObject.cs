@@ -23,7 +23,13 @@ public class InteractableObject : MonoBehaviour
     [Header("密码锁设置")]
     public string correctPassword = "1234";
 
-    
+    [Header("内部面板")]
+    public Sprite insideBackgroundImage;  // 这个箱子的内部背景图
+    public bool hasKey = true;
+    public bool hasClip = false;
+   
+
+
 
 
     [Header("音效（可选）")]
@@ -47,6 +53,16 @@ public class InteractableObject : MonoBehaviour
             return;
         }
 
+        //==================   已打开：显示内部面板   ========================
+        if (isOpen)
+        {
+            // 通过 InsidePanel 显示面板，按钮的显示/隐藏应该在 InsidePanel 内部处理
+            UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip);
+            return;
+        }
+        //==========================================
+
+
         Debug.Log($"点击到了: {gameObject.name}");
 
         // ========== 钥匙锁：检查是否锁着 ==========
@@ -66,8 +82,7 @@ public class InteractableObject : MonoBehaviour
             UIManager.Instance.ShowPasswordPanel(this);
             return;
         }
-        // =====================================
-
+        // ================  解锁后的开关逻辑  =====================
 
         isOpen = !isOpen;
         UpdateVisual();
@@ -78,6 +93,10 @@ public class InteractableObject : MonoBehaviour
         }
 
         Debug.Log($"{gameObject.name} 已 {(isOpen ? "打开" : "关闭")}");
+
+
+       
+
     }
 
     private void UpdateVisual()

@@ -18,7 +18,7 @@ public class PasswordPanel : MonoBehaviour
     {
         //有这个代码则不需要手动关闭那个ui，没有的话则需要手动关闭哈。
         //Debug.Log($"PasswordPanel 启动: {gameObject.name}, 实例ID: {GetInstanceID()}");
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 
     public void OpenPanel(InteractableObject target)

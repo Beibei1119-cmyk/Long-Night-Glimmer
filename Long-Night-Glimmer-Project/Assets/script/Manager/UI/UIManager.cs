@@ -9,6 +9,9 @@ public class UIManager : MonoBehaviour
     //public Sprite keyDragSprite;  // 钥匙拖拽时的图片
     //public Sprite gemDragSprite;  // 发夹拖拽时的图片
 
+    [Header("内部面板")]
+    public InsidePanel insidePanel;  // 改成 InsidePanel 类型
+
     [Header("提示面板")]
     public GameObject hintPanel;
     public Text hintText;
@@ -51,7 +54,15 @@ public class UIManager : MonoBehaviour
             rightButton.onClick.AddListener(() => InventoryManager.Instance.SelectNext());
 
         RefreshHotbar();
+
     }
+
+    //===========================================
+   
+  
+
+
+    //============================================
 
     public void ShowHint(string message)
     {
@@ -60,6 +71,7 @@ public class UIManager : MonoBehaviour
         CancelInvoke(nameof(HideHint));
         Invoke(nameof(HideHint), 2f);
     }
+
 
     private void HideHint()
     {
@@ -157,4 +169,17 @@ public class UIManager : MonoBehaviour
         }
     }
     // =================================
+
+    public void ShowInsidePanel(Sprite bgImage, bool showKey, bool showClip)
+    {
+        if (insidePanel != null)
+            insidePanel.Show(bgImage, showKey, showClip);
+    }
+
+    public void HideInsidePanel()
+    {
+        if (insidePanel != null)
+            insidePanel.Hide();
+    }
+
 }
