@@ -57,7 +57,7 @@ public class DragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         if (dragSprite != null)
         {
             img.sprite = dragSprite;
-            Debug.Log($"¼ÓÔØÍÏ×§Í¼Æ¬£ºDragIcons/{itemName} -> ³É¹¦");
+            
         }
         else
         {

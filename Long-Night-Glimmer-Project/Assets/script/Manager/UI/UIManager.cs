@@ -93,7 +93,6 @@ public class UIManager : MonoBehaviour
 
     public void RefreshHotbar()
     {
-        //Debug.Log($"[UIManager] RefreshHotbar 开始");
 
         if (hotbarIcon == null || hotbarName == null)
         {
@@ -102,11 +101,11 @@ public class UIManager : MonoBehaviour
         }
 
         string currentItem = InventoryManager.Instance.CurrentItem;
-        //Debug.Log($"[UIManager] currentItem = {currentItem ?? "null"}");
+      
 
         if (string.IsNullOrEmpty(currentItem))
         {
-            //Debug.Log("[UIManager] 清空快捷栏显示");
+          
 
             // ========== 清空显示 ==========
             hotbarIcon.sprite = null;
@@ -117,14 +116,14 @@ public class UIManager : MonoBehaviour
             DragableItem drag = hotbarIcon.GetComponent<DragableItem>();
             if (drag != null)
             {
-                //Debug.Log("[UIManager] 移除旧的 DragableItem 脚本");
+            
                 Destroy(drag);
             }
             // ============================
         }
         else
         {
-            //Debug.Log($"[UIManager] 显示物品: {currentItem}");
+          
 
             // ========== 显示物品 ==========
             hotbarIcon.color = new Color(1, 1, 1, 1);
@@ -132,7 +131,7 @@ public class UIManager : MonoBehaviour
 
             // 加载图标
             Sprite icon = Resources.Load<Sprite>($"Icons/{currentItem}");
-            //Debug.Log($"[UIManager] 加载图片：Icons/{currentItem} -> {(icon != null ? "成功" : "失败")}");
+   
 
             if (icon != null)
             {
@@ -154,11 +153,10 @@ public class UIManager : MonoBehaviour
 
             DragableItem newDrag = hotbarIcon.gameObject.AddComponent<DragableItem>();
             newDrag.itemName = currentItem;
-            //Debug.Log($"[UIManager] 添加新的 DragableItem 脚本, itemName={currentItem}");
+  
             // ========================================================
         }
 
-        //Debug.Log("[UIManager] RefreshHotbar 完成");
     }
 
 

@@ -1160,7 +1160,7 @@ GameObject:
   - component: {fileID: 632833617}
   - component: {fileID: 632833616}
   m_Layer: 6
-  m_Name: ClickArea
+  m_Name: "\u62BD\u5C49"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

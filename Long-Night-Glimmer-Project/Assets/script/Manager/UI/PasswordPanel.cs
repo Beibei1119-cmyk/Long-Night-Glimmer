@@ -23,7 +23,7 @@ public class PasswordPanel : MonoBehaviour
 
     public void OpenPanel(InteractableObject target)
     {
-        Debug.Log($"OpenPanel 被调用, target={target?.name}");
+        //Debug.Log($"OpenPanel 被调用, target={target?.name}");
         currentTarget = target;
         currentInput = "";
         UpdateDisplay();
@@ -39,13 +39,13 @@ public class PasswordPanel : MonoBehaviour
 
     public void OnNumberClick(string number)
     {
-        Debug.Log($"OnNumberClick 被调用, number={number}, 当前currentInput={currentInput}");
+        //Debug.Log($"OnNumberClick 被调用, number={number}, 当前currentInput={currentInput}");
 
         if (currentInput.Length < maxLength)
         {
             currentInput += number;
             UpdateDisplay();
-            Debug.Log($"添加后 currentInput={currentInput}");
+            //Debug.Log($"添加后 currentInput={currentInput}");
         }
     }
 
@@ -60,13 +60,7 @@ public class PasswordPanel : MonoBehaviour
 
     public void OnConfirmClick()
     {
-        Debug.Log($"=== 确认按钮被点击 ===");
-        Debug.Log($"currentTarget = {currentTarget?.name}");
-        Debug.Log($"currentInput = '{currentInput}'");
-        Debug.Log($"correctPassword = '{currentTarget?.correctPassword}'");
-        Debug.Log($"CheckPassword 结果 = {currentTarget?.CheckPassword(currentInput)}");
-        Debug.Log($"OnConfirmClick: currentTarget={currentTarget?.name}, currentInput={currentInput}, correctPassword={currentTarget?.correctPassword}");
-
+      
         if (currentTarget == null)
         {
             Debug.LogError("currentTarget 是 null！请检查 OpenPanel 是否被正确调用");

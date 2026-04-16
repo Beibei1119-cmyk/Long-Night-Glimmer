@@ -58,13 +58,12 @@ public class InteractableObject : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log($"点击到了: {gameObject.name}");
         // 切换状态：TODO：当加入解密系统后，解密完成后才能点击开门哦~
 
         // 检测是否点击在UI上
         if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
         {
-            Debug.Log("点击在UI上，忽略物体点击");
+
             return;
         }
 
@@ -115,6 +114,15 @@ public class InteractableObject : MonoBehaviour
         // ================  解锁后的开关逻辑  =====================
         isOpen = !isOpen;
         UpdateVisual();
+        //保存状态：
+        SceneStateManager.Instance?.SaveBoxState(
+        UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
+            gameObject.name,
+            isOpen,
+            isLocked
+        ); 
+
+      
         // 播放音效（如果有）
         if (openSound != null)
         {
@@ -146,25 +154,28 @@ public class InteractableObject : MonoBehaviour
     // ========== 解锁方法（被钥匙调用） ==========
     public void Unlock()
     {
-        //Debug.Log($"[InteractableObject] Unlock 开始, 物品: {gameObject.name}");
+        
 
         isLocked = false;
         isOpen = true;
         UpdateVisual();
-
-        //Debug.Log($"[InteractableObject] 状态已更新: isLocked={isLocked}, isOpen={isOpen}");
-
-
         UIManager.Instance.ShowHint($"{gameObject.name} 已解锁并打开");
-
         // 注意：这里不要调用 RemoveItem , RemoveItem 会在 DragableItem.OnEndDrag 中调用
-        //Debug.Log($"[InteractableObject] Unlock 完成，注意：未调用 RemoveItem");
+   
 
         // 播放音效
         if (openSound != null)
         {
             AudioSource.PlayClipAtPoint(openSound, transform.position);
         }
+
+        // ========== 保存状态 ==========
+        SceneStateManager.Instance?.SaveBoxState(
+            UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
+            gameObject.name,
+            isOpen,
+            isLocked
+        );
     }
 
 
@@ -197,4 +208,18 @@ public class InteractableObject : MonoBehaviour
         return false;
     }
 
+
+    //============= 保存场景 ==============
+    public void SetOpenState(bool open)
+    {
+        isOpen = open;
+        UpdateVisual();
+        Debug.Log($"[SetOpenState] {gameObject.name} isOpen={isOpen}");
+    }
+
+    public void SetUnlockedState(bool unlocked)
+    {
+        isLocked = !unlocked;
+        Debug.Log($"[SetUnlockedState] {gameObject.name} isLocked={isLocked}, unlocked={unlocked}");
+    }
 }

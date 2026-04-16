@@ -55,7 +55,6 @@ public class InsidePanel : MonoBehaviour
             click = item.AddComponent<UIItemClick>();
         click.itemName = itemName;
 
-        Debug.Log($"[AddPickupToItem] 完成, 已添加 UIItemClick");
     }
 
 
@@ -64,19 +63,22 @@ public class InsidePanel : MonoBehaviour
     {
         // 设置背景图
         if (backgroundImage != null && bgImage != null)
-        {
             backgroundImage.sprite = bgImage;
-        }
 
-        // 显示/隐藏物品
+        // 获取当前场景名
+        string sceneName = "PersistentScene";
+
+        // 根据保存的状态决定是否显示物品
+        bool keyShouldShow = showKey && !SceneStateManager.Instance.IsUIItemPickedUp(sceneName, "KeyItem");
+        bool clipShouldShow = showClip && !SceneStateManager.Instance.IsUIItemPickedUp(sceneName, "ClipItem");
+
         if (keyItem != null)
-            keyItem.SetActive(showKey);
+            keyItem.SetActive(keyShouldShow);
         if (clipItem != null)
-            clipItem.SetActive(showClip);
+            clipItem.SetActive(clipShouldShow);
 
         gameObject.SetActive(true);
     }
-
     public void Hide()
     {
         gameObject.SetActive(false);
