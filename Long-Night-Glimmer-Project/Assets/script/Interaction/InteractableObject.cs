@@ -3,8 +3,16 @@ using static UnityEditor.PlayerSettings.Switch;
 
 public class InteractableObject : MonoBehaviour
 {
+    public enum ObjectType  //锁类型枚举
+    {
+        KeyLock,      // 钥匙锁
+        PasswordLock, // 密码锁
+        ShowDetail,  // 显示详情面板
+        OnlyHint      // 只显示提示
+    }
+
     [Header("锁类型")]
-    public LockType lockType = LockType.KeyLock;
+    public ObjectType lockType = ObjectType.KeyLock;
 
     [Header("锁定状态")]
     public bool isLocked = true;           // 是否锁着
@@ -23,13 +31,21 @@ public class InteractableObject : MonoBehaviour
     [Header("密码锁设置")]
     public string correctPassword = "1234";
 
+    // ========== 详情面板设置（ShowDetail类型用）==========
+    [Header("详情面板设置")]
+    public Sprite detailImage;
+    [TextArea(3, 5)]
+    public string detailDescription = "物品描述";
+    public string detailHint = "查看物品";  // 新增：自定义提示文字
+
+
     [Header("内部面板")]
     public Sprite insideBackgroundImage;  // 这个箱子的内部背景图
     public bool hasKey = true;
     public bool hasClip = false;
-   
 
-
+    [Header("只显示提示框（OnlyHint）")]
+    public string hintMessage = "这是一个物体";
 
 
     [Header("音效（可选）")]
@@ -39,7 +55,6 @@ public class InteractableObject : MonoBehaviour
     {
         UpdateVisual();
     }
-
 
     private void OnMouseDown()
     {
@@ -53,28 +68,42 @@ public class InteractableObject : MonoBehaviour
             return;
         }
 
-        //==================   已打开：显示内部面板   ========================
+        // ========== 类型1：只显示提示 ==========
+        if (lockType == ObjectType.OnlyHint)
+        {
+            UIManager.Instance.ShowHint(hintMessage);
+            return;
+        }
+
+        // ========== 类型2：显示详情面板 ==========
+        if (lockType == ObjectType.ShowDetail)
+        {
+            // 先显示底部提示
+            UIManager.Instance.ShowHint(detailHint);
+            // 再弹出详情面板
+            UIManager.Instance.ShowDetail(detailImage, detailDescription);
+            return;
+        }
+
+        // ========== 类型3：已打开，显示内部面板 ==========
         if (isOpen)
         {
             // 通过 InsidePanel 显示面板，按钮的显示/隐藏应该在 InsidePanel 内部处理
             UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip);
             return;
         }
-        //==========================================
 
 
-        Debug.Log($"点击到了: {gameObject.name}");
-
-        // ========== 钥匙锁：检查是否锁着 ==========
-        if (lockType == LockType.KeyLock && isLocked)
+        // ========== 类型4：钥匙锁 ==========
+        if (lockType == ObjectType.KeyLock && isLocked)
         {
             UIManager.Instance.ShowHint(lockHint);
             return;  // 锁着，不能继续
         }
-        // =====================================
 
-        // ========== 密码锁：弹出密码面板 ==========
-        if (lockType == LockType.PasswordLock && isLocked)
+
+        // ========== 类型5：密码锁 ==========
+        if (lockType == ObjectType.PasswordLock && isLocked)
         {
             // 先显示提示
             UIManager.Instance.ShowHint(lockHint);
@@ -82,8 +111,8 @@ public class InteractableObject : MonoBehaviour
             UIManager.Instance.ShowPasswordPanel(this);
             return;
         }
-        // ================  解锁后的开关逻辑  =====================
 
+        // ================  解锁后的开关逻辑  =====================
         isOpen = !isOpen;
         UpdateVisual();
         // 播放音效（如果有）
@@ -93,9 +122,6 @@ public class InteractableObject : MonoBehaviour
         }
 
         Debug.Log($"{gameObject.name} 已 {(isOpen ? "打开" : "关闭")}");
-
-
-       
 
     }
 
@@ -115,8 +141,7 @@ public class InteractableObject : MonoBehaviour
         return input == correctPassword;
     }
 
-    // =====================================
-
+ 
 
     // ========== 解锁方法（被钥匙调用） ==========
     public void Unlock()
@@ -131,12 +156,9 @@ public class InteractableObject : MonoBehaviour
 
 
         UIManager.Instance.ShowHint($"{gameObject.name} 已解锁并打开");
-        // ========== 注意：这里不要调用 RemoveItem ==========
-        // RemoveItem 会在 DragableItem.OnEndDrag 中调用
-        // ==================================================
 
+        // 注意：这里不要调用 RemoveItem , RemoveItem 会在 DragableItem.OnEndDrag 中调用
         //Debug.Log($"[InteractableObject] Unlock 完成，注意：未调用 RemoveItem");
-
 
         // 播放音效
         if (openSound != null)
@@ -145,21 +167,13 @@ public class InteractableObject : MonoBehaviour
         }
     }
 
-    // ===============================================
 
-    // ========== 新增：锁类型枚举 ==========
-    public enum LockType
-    {
-        KeyLock,      // 钥匙锁
-        PasswordLock  // 密码锁
-    }
-    // =================================
 
     public bool TryUnlockWithKey(string keyName)
     {
 
         //Debug.Log($"[InteractableObject] TryUnlockWithKey: keyName={keyName}, lockType={lockType}, isLocked={isLocked}");
-        if (lockType != LockType.KeyLock)
+        if (lockType != ObjectType.KeyLock)
         {
             Debug.Log($"[InteractableObject] 不是钥匙锁，返回 false");
             return false;
