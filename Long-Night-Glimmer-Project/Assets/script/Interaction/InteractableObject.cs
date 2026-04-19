@@ -74,17 +74,43 @@ public class InteractableObject : MonoBehaviour
             return;
         }
 
-        // ========== 类型2：显示详情面板 ==========
+        // ========== 类型2：显示详情面板（需要先打开） ==========
         if (lockType == ObjectType.ShowDetail)
         {
-            // 先显示底部提示
+            if (!isOpen)
+            {
+                // 第一次点击：打开物体
+                isOpen = true;
+                UpdateVisual();
+                UIManager.Instance.ShowHint($"打开了{gameObject.name}");
+
+                // 保存状态
+                SceneStateManager.Instance?.SaveBoxState(
+                    UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
+                    gameObject.name,
+                    isOpen,
+                    isLocked
+                );
+                return;
+            }
+            else
+            {
+                // 已打开：显示详情面板
+                UIManager.Instance.ShowHint(detailHint);
+                UIManager.Instance.ShowDetail(detailImage, detailDescription);
+                return;
+            }
+        }
+
+        // ========== 类型3：已打开且是 ShowDetail 类型：显示详情面板 ==========
+        if (isOpen && lockType == ObjectType.ShowDetail)
+        {
             UIManager.Instance.ShowHint(detailHint);
-            // 再弹出详情面板
             UIManager.Instance.ShowDetail(detailImage, detailDescription);
             return;
         }
 
-        // ========== 类型3：已打开，显示内部面板 ==========
+        // ========== 类型4：已打开，显示内部面板 ==========
         if (isOpen)
         {
             // 通过 InsidePanel 显示面板，按钮的显示/隐藏应该在 InsidePanel 内部处理
@@ -93,7 +119,7 @@ public class InteractableObject : MonoBehaviour
         }
 
 
-        // ========== 类型4：钥匙锁 ==========
+        // ========== 类型5：钥匙锁 ==========
         if (lockType == ObjectType.KeyLock && isLocked)
         {
             UIManager.Instance.ShowHint(lockHint);
@@ -101,7 +127,7 @@ public class InteractableObject : MonoBehaviour
         }
 
 
-        // ========== 类型5：密码锁 ==========
+        // ========== 类型6：密码锁 ==========
         if (lockType == ObjectType.PasswordLock && isLocked)
         {
             // 先显示提示
