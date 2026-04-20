@@ -36,6 +36,14 @@ public class UIManager : MonoBehaviour
     // =================================
 
 
+
+    //[Header("组合锁面板")]
+    //public GameObject comboLockPanel;  // 拖入 ComboLockPanel_BoxA
+    [Header("组合锁面板")]
+    public ComboLockPanel comboLockPanel;  // 改成 ComboLockPanel 类型，不是 GameObject
+
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -90,6 +98,27 @@ public class UIManager : MonoBehaviour
     {
         hintPanel.SetActive(false);
     }
+
+    //============组合锁====================
+    //public void ShowComboLockPanel(InteractableObject target)
+    //{
+    //    if (comboLockPanel != null)
+    //    {
+    //        comboLockPanel.SetActive(true);
+    //        // 后续会把 target 传给面板
+    //    }
+    //}
+
+    public void ShowComboLockPanel(InteractableObject target)
+    {
+        if (comboLockPanel != null)
+        {
+            comboLockPanel.Open(target);  // 调用 Open 方法传递箱子
+        }
+    }
+
+    //============================================================
+
 
     public void RefreshHotbar()
     {

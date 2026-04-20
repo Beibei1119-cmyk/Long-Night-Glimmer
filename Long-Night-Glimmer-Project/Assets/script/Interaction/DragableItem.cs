@@ -112,7 +112,39 @@ public class DragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             //Debug.Log($"[DragableItem] 拖拽图片已销毁");
         }
 
-        // 射线检测
+
+
+
+
+        // ========== 新增：UI 射线检测（检测组合锁凹槽）==========
+        PointerEventData pointerData = new PointerEventData(EventSystem.current);
+        pointerData.position = Input.mousePosition;
+        var results = new System.Collections.Generic.List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerData, results);
+
+        foreach (var result in results)
+        {
+            ComboLockSlot slot = result.gameObject.GetComponent<ComboLockSlot>();
+            if (slot != null && slot.TryPlaceItem(itemName))
+            {
+                // 放入成功，从背包移除
+                InventoryManager.Instance.RemoveItem(itemName);
+
+                // 恢复位置（和下面物理检测后的逻辑一样）
+                canvasGroup.alpha = 1f;
+                canvasGroup.blocksRaycasts = true;
+                transform.SetParent(originalParent);
+                transform.position = originalPosition;
+
+                return;
+            }
+        }
+        // ========================================================
+
+
+
+
+        // =================== 2.物理射线检测 ==============================（组合锁面板只加了这里 ）        
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
 

@@ -8,7 +8,8 @@ public class InteractableObject : MonoBehaviour
         PasswordLock,   // 密码锁
         DetailOnly,     // 只显示详情面板（画、书）
         DetailWithOpen, // 先切换形态，再显示详情面板（窗户）
-        OnlyHint        // 只显示提示（石头、花）
+        OnlyHint,        // 只显示提示（石头、花）
+        ComboLock       //组合锁
     }
 
     [Header("交互类型")]
@@ -34,7 +35,7 @@ public class InteractableObject : MonoBehaviour
     public string detailDescription = "物品描述";
     public string detailHint = "查看物品";
 
-    // ========== 内部面板设置（箱子用）==========
+    // ========== 内部面板设置（箱子类用）==========
     [Header("内部面板")]
     public Sprite insideBackgroundImage;
     public bool hasKey = true;
@@ -103,6 +104,14 @@ public class InteractableObject : MonoBehaviour
             return;
         }
 
+        // ========== 类型：组合锁 ==========
+        if (objectType == ObjectType.ComboLock)
+        {
+            UIManager.Instance.ShowComboLockPanel(this);
+            UIManager.Instance.ShowHint(hintMessage);
+            return;
+        }
+
         // ========== 类型5：钥匙锁 ==========
         if (objectType == ObjectType.KeyLock && isLocked)
         {
@@ -156,6 +165,7 @@ public class InteractableObject : MonoBehaviour
 
     public void Unlock()
     {
+        Debug.Log($"Unlock 被调用，{gameObject.name}");
         isLocked = false;
         isOpen = true;
         UpdateVisual();
