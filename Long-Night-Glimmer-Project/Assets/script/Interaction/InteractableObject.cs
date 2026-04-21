@@ -4,13 +4,17 @@ public class InteractableObject : MonoBehaviour
 {
     public enum ObjectType
     {
-        KeyLock,        // 钥匙锁（箱子、抽屉）
-        PasswordLock,   // 密码锁
+        KeyLock,        // 钥匙锁（箱子、抽屉）/
+        PasswordLock,   // 密码锁/
         DetailOnly,     // 只显示详情面板（画、书）
-        DetailWithOpen, // 先切换形态，再显示详情面板（窗户）
+        DetailWithOpen, // 先切换形态，再显示详情面板（日历，窗户）/
         OnlyHint,        // 只显示提示（石头、花）
-        ComboLock       //组合锁
+        ComboLock,      //组合锁/
+        OpenThenInside      // 新增：先打开 → 内部面板（窗户里有东西）
     }
+
+    [Header("门设置")]
+    public bool disableClickAfterUnlock = false;  // 解锁后禁用点击
 
     [Header("交互类型")]
     public ObjectType objectType = ObjectType.KeyLock;
@@ -35,11 +39,18 @@ public class InteractableObject : MonoBehaviour
     public string detailDescription = "物品描述";
     public string detailHint = "查看物品";
 
+
+
     // ========== 内部面板设置（箱子类用）==========
     [Header("内部面板")]
     public Sprite insideBackgroundImage;
-    public bool hasKey = true;
-    public bool hasClip = false;
+    public bool hasKey = false;    //铜钥匙
+    public bool hasClip = false;  //发夹
+    public bool hasKey2 = false;   //银钥匙
+    public bool hasGem1 = false;      // 宝石1
+    public bool hasGem2 = false;      // 宝石2
+
+
 
     // ========== 提示框设置（OnlyHint 用）==========
     [Header("提示框设置")]
@@ -61,6 +72,40 @@ public class InteractableObject : MonoBehaviour
             return;
         }
 
+
+
+        //单独只给门设置的：
+        // 如果解锁后禁用点击，且已经打开，则不响应
+        if (disableClickAfterUnlock && isOpen)
+        {
+            return;
+        }
+
+
+        // ========== 优先：已打开，显示内部面板 ==========
+        if (isOpen)
+        {
+            // 箱子类：显示内部面板（拿物品）
+            if (objectType == ObjectType.KeyLock ||
+                objectType == ObjectType.PasswordLock ||
+                objectType == ObjectType.ComboLock||
+                objectType == ObjectType.OpenThenInside)
+            {
+                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2);
+                return;
+            }
+            // 窗户类：显示详情面板（放大图）
+            if (objectType == ObjectType.DetailWithOpen)
+                
+            {
+                UIManager.Instance.ShowHint(detailHint);
+                UIManager.Instance.ShowDetail(detailImage, detailDescription);
+                return;
+            }
+
+            // 默认
+            return;
+        }
         // ========== 类型1：只显示提示 ==========
         if (objectType == ObjectType.OnlyHint)
         {
@@ -97,34 +142,74 @@ public class InteractableObject : MonoBehaviour
             }
         }
 
-        // ========== 类型4：已打开，显示内部面板（箱子）==========
-        if (isOpen)
+        // ========== 类型：先打开，再显示内部面板（窗户里有物品）==========
+        if (objectType == ObjectType.OpenThenInside)
         {
-            UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip);
-            return;
+            if (!isOpen)
+            {
+                // 第一次点击：打开物体
+                isOpen = true;
+                UpdateVisual();
+                UIManager.Instance.ShowHint($"打开了{gameObject.name}");
+                SaveState();
+                return;
+            }
+            else
+            {
+                // 已打开：显示内部面板（里面有可拾取物品）
+                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2);
+                return;
+            }
         }
 
         // ========== 类型：组合锁 ==========
         if (objectType == ObjectType.ComboLock)
         {
-            UIManager.Instance.ShowComboLockPanel(this);
-            UIManager.Instance.ShowHint(hintMessage);
-            return;
+            if (!isOpen)
+            {
+                UIManager.Instance.ShowComboLockPanel(this);
+                UIManager.Instance.ShowHint(hintMessage);
+                return;
+            }
+            else
+            {
+                // 已打开：显示内部面板（里面有可拾取物品）
+                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2);
+                return;
+            }
         }
 
         // ========== 类型5：钥匙锁 ==========
         if (objectType == ObjectType.KeyLock && isLocked)
         {
-            UIManager.Instance.ShowHint(lockHint);
-            return;
+            if (!isOpen)
+            {
+                UIManager.Instance.ShowHint(lockHint);
+                return;
+            }
+            else
+            {
+                // 已打开：显示内部面板（里面有可拾取物品）
+                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2);
+                return;
+            }
         }
 
         // ========== 类型6：密码锁 ==========
         if (objectType == ObjectType.PasswordLock && isLocked)
         {
-            UIManager.Instance.ShowHint(lockHint);
-            UIManager.Instance.ShowPasswordPanel(this);
-            return;
+            if (!isOpen)
+            {
+                UIManager.Instance.ShowHint(lockHint);
+                UIManager.Instance.ShowPasswordPanel(this);
+                return;
+            }
+            else
+            {
+                // 已打开：显示内部面板（里面有可拾取物品）
+                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2);
+                return;
+            }
         }
 
         // ========== 解锁后的开关逻辑 ==========

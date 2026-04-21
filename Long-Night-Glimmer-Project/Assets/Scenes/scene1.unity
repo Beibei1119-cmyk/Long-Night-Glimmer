@@ -326,6 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableClickAfterUnlock: 0
   objectType: 4
   isLocked: 0
   lockHint: --
@@ -340,6 +341,9 @@ MonoBehaviour:
   insideBackgroundImage: {fileID: 0}
   hasKey: 0
   hasClip: 0
+  hasKey2: 1
+  hasGem1: 0
+  hasGem2: 0
   hintMessage: "\u662F\u4E00\u4E2A\u949F\u8868\uFF0C\u4F46\u8F6C\u52A8\u7684\u597D\u6DF7\u4E71...\u597D\u5947\u602A"
   openSound: {fileID: 0}
 --- !u!61 &192257980
@@ -597,6 +601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableClickAfterUnlock: 1
   objectType: 0
   isLocked: 1
   lockHint: "\u95E8..\u4F3C\u4E4E\u9501\u7740\uFF0C\u9700\u8981\u94A5\u5319"
@@ -611,6 +616,9 @@ MonoBehaviour:
   insideBackgroundImage: {fileID: 0}
   hasKey: 1
   hasClip: 0
+  hasKey2: 1
+  hasGem1: 0
+  hasGem2: 0
   hintMessage: "\u8FD9\u662F\u4E00\u4E2A\u7269\u4F53"
   openSound: {fileID: 0}
 --- !u!61 &298158346
@@ -756,6 +764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableClickAfterUnlock: 0
   objectType: 0
   isLocked: 0
   lockHint: --
@@ -770,6 +779,9 @@ MonoBehaviour:
   insideBackgroundImage: {fileID: 0}
   hasKey: 0
   hasClip: 0
+  hasKey2: 1
+  hasGem1: 0
+  hasGem2: 0
   hintMessage: "\u8FD9\u662F\u4E00\u4E2A\u7269\u4F53"
   openSound: {fileID: 0}
 --- !u!61 &305381000
@@ -1193,6 +1205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableClickAfterUnlock: 0
   objectType: 0
   isLocked: 1
   lockHint: "\u62BD\u5C49\u597D\u50CF\u9501\u7740\u5462...\u9700\u8981\u575A\u786C\u7684\u4E1C\u897F\u6253\u5F00"
@@ -1207,6 +1220,9 @@ MonoBehaviour:
   insideBackgroundImage: {fileID: 21300000, guid: 9881accdb306bb743a0834dd02bb934a, type: 3}
   hasKey: 1
   hasClip: 0
+  hasKey2: 0
+  hasGem1: 0
+  hasGem2: 0
   hintMessage: "\u8FD9\u662F\u4E00\u4E2A\u7269\u4F53"
   openSound: {fileID: 0}
 --- !u!61 &632833617
@@ -1352,6 +1368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableClickAfterUnlock: 0
   objectType: 4
   isLocked: 0
   lockHint: --
@@ -1366,6 +1383,9 @@ MonoBehaviour:
   insideBackgroundImage: {fileID: 0}
   hasKey: 1
   hasClip: 0
+  hasKey2: 1
+  hasGem1: 0
+  hasGem2: 0
   hintMessage: "\u8FD9\u91CC\u6709\u4E00\u4E2A\u88C2\u53E3\uFF0C\u5149\u597D\u4EAE\uFF0C\u770B\u4E0D\u6E05\u5916\u9762"
   openSound: {fileID: 0}
 --- !u!61 &643052361
@@ -2032,6 +2052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableClickAfterUnlock: 0
   objectType: 0
   isLocked: 0
   lockHint: --
@@ -2046,6 +2067,9 @@ MonoBehaviour:
   insideBackgroundImage: {fileID: 0}
   hasKey: 0
   hasClip: 0
+  hasKey2: 1
+  hasGem1: 0
+  hasGem2: 0
   hintMessage: "\u8FD9\u662F\u4E00\u4E2A\u7269\u4F53"
   openSound: {fileID: 0}
 --- !u!61 &1225415034
@@ -2499,6 +2523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableClickAfterUnlock: 0
   objectType: 1
   isLocked: 1
   lockHint: "\u8FD9\u4E2A\u76D2\u5B50\u4F3C\u4E4E\u9700\u8981\u56DB\u4F4D\u6570\u5BC6\u7801..."
@@ -2513,6 +2538,9 @@ MonoBehaviour:
   insideBackgroundImage: {fileID: 21300000, guid: c36ac4f1accb2db42aa0781ee91ea9ec, type: 3}
   hasKey: 0
   hasClip: 1
+  hasKey2: 0
+  hasGem1: 0
+  hasGem2: 0
   hintMessage: "\u8FD9\u662F\u4E00\u4E2A\u7269\u4F53"
   openSound: {fileID: 0}
 --- !u!61 &1584347483
@@ -2640,6 +2668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableClickAfterUnlock: 0
   objectType: 3
   isLocked: 0
   lockHint: --
@@ -2654,6 +2683,9 @@ MonoBehaviour:
   insideBackgroundImage: {fileID: 0}
   hasKey: 0
   hasClip: 0
+  hasKey2: 1
+  hasGem1: 0
+  hasGem2: 0
   hintMessage: "\u8FD9\u662F\u4E00\u4E2A\u7269\u4F53"
   openSound: {fileID: 0}
 --- !u!61 &1652080421
@@ -2943,6 +2975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableClickAfterUnlock: 0
   objectType: 4
   isLocked: 0
   lockHint: --
@@ -2957,6 +2990,9 @@ MonoBehaviour:
   insideBackgroundImage: {fileID: 0}
   hasKey: 0
   hasClip: 0
+  hasKey2: 1
+  hasGem1: 0
+  hasGem2: 0
   hintMessage: "\u7A7A\u76F8\u6846\uFF0C\u91CC\u9762\u4EC0\u4E48\u4E5F\u6CA1\u6709"
   openSound: {fileID: 0}
 --- !u!61 &1685224922
@@ -3102,6 +3138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableClickAfterUnlock: 0
   objectType: 4
   isLocked: 1
   lockHint: --
@@ -3116,6 +3153,9 @@ MonoBehaviour:
   insideBackgroundImage: {fileID: 0}
   hasKey: 1
   hasClip: 0
+  hasKey2: 1
+  hasGem1: 0
+  hasGem2: 0
   hintMessage: "\u8FD9\u76CF\u706F\u4F3C\u4E4E\u4EAE\u7740\uFF0C\u4F46\u5149\u4EAE\u5F88\u5FAE\u5F31..."
   openSound: {fileID: 0}
 --- !u!61 &1736772181

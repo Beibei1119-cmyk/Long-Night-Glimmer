@@ -6,6 +6,12 @@ public class InsidePanel : MonoBehaviour
     [Header("物品")]
     public GameObject keyItem;      // 钥匙物品（普通图片）
     public GameObject clipItem;     // 发夹物品（普通图片）
+    public GameObject key2Item;     // 银钥匙（新增）
+    public GameObject gem1Item;     // 宝石1（新增）
+    public GameObject gem2Item;     // 宝石2（新增）
+
+
+
     public Button closeButton;      // 关闭按钮（还是按钮）
 
     [Header("背景图")]
@@ -59,7 +65,7 @@ public class InsidePanel : MonoBehaviour
 
 
 
-    public void Show(Sprite bgImage, bool showKey, bool showClip)
+    public void Show(Sprite bgImage, bool showKey, bool showClip, bool showKey2, bool showGem1, bool showGem2)
     {
         // 设置背景图
         if (backgroundImage != null && bgImage != null)
@@ -71,12 +77,15 @@ public class InsidePanel : MonoBehaviour
         // 根据保存的状态决定是否显示物品
         bool keyShouldShow = showKey && !SceneStateManager.Instance.IsUIItemPickedUp(sceneName, "KeyItem");
         bool clipShouldShow = showClip && !SceneStateManager.Instance.IsUIItemPickedUp(sceneName, "ClipItem");
+        bool key2ShouldShow = showKey2 && !SceneStateManager.Instance.IsUIItemPickedUp(sceneName, "Key2Item");
+        bool gem1ShouldShow = showGem1 && !SceneStateManager.Instance.IsUIItemPickedUp(sceneName, "Gem1Item");
+        bool gem2ShouldShow = showGem2 && !SceneStateManager.Instance.IsUIItemPickedUp(sceneName, "Gem2Item");
 
-        if (keyItem != null)
-            keyItem.SetActive(keyShouldShow);
-        if (clipItem != null)
-            clipItem.SetActive(clipShouldShow);
-
+        if (keyItem != null) keyItem.SetActive(keyShouldShow);
+        if (clipItem != null) clipItem.SetActive(clipShouldShow);
+        if (key2Item != null) key2Item.SetActive(key2ShouldShow);
+        if (gem1Item != null) gem1Item.SetActive(gem1ShouldShow);
+        if (gem2Item != null) gem2Item.SetActive(gem2ShouldShow);
         gameObject.SetActive(true);
     }
     public void Hide()
