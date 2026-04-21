@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 13751686}
   - component: {fileID: 13751685}
   m_Layer: 5
-  m_Name: Key2
+  m_Name: Key2Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7271,7 +7271,7 @@ GameObject:
   - component: {fileID: 2105678934}
   - component: {fileID: 2105678933}
   m_Layer: 5
-  m_Name: Gem2
+  m_Name: Gem2Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7406,7 +7406,7 @@ GameObject:
   - component: {fileID: 2133696168}
   - component: {fileID: 2133696167}
   m_Layer: 5
-  m_Name: Gem1
+  m_Name: Gem1Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

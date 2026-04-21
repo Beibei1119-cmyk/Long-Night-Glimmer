@@ -10,7 +10,9 @@ public class InteractableObject : MonoBehaviour
         DetailWithOpen, // 先切换形态，再显示详情面板（日历，窗户）/
         OnlyHint,        // 只显示提示（石头、花）
         ComboLock,      //组合锁/
-        OpenThenInside      // 新增：先打开 → 内部面板（窗户里有东西）
+        OpenThenInside,    // 新增：先打开 → 内部面板（窗户里有东西）
+
+        OpenThenItem       // 先打开 → 出现可点击物品 → 点击物品进入详
     }
 
     [Header("门设置")]
@@ -59,6 +61,14 @@ public class InteractableObject : MonoBehaviour
     [Header("音效")]
     public AudioClip openSound;
 
+
+    [Header("打开后可点击物品")]
+    public GameObject clickableItem;  // 打开后显示的可点击物品
+    public Sprite clickableItemDetailImage;
+    [TextArea(3, 5)]
+    public string clickableItemDetailDescription;
+
+
     private void Start()
     {
         UpdateVisual();
@@ -92,6 +102,7 @@ public class InteractableObject : MonoBehaviour
                 objectType == ObjectType.OpenThenInside)
             {
                 UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2);
+                UIManager.Instance.ShowHint($"打开{gameObject.name}");
                 return;
             }
             // 窗户类：显示详情面板（放大图）
@@ -101,6 +112,12 @@ public class InteractableObject : MonoBehaviour
                 UIManager.Instance.ShowHint(detailHint);
                 UIManager.Instance.ShowDetail(detailImage, detailDescription);
                 return;
+            }
+
+            // ========== 新增：OpenThenItem 打开后不做任何事 ==========
+            if (objectType == ObjectType.OpenThenItem)
+            {
+                return;  // 让玩家点击那个物品
             }
 
             // 默认
@@ -151,6 +168,7 @@ public class InteractableObject : MonoBehaviour
                 isOpen = true;
                 UpdateVisual();
                 UIManager.Instance.ShowHint($"打开了{gameObject.name}");
+                UIManager.Instance.ShowHint(hintMessage);
                 SaveState();
                 return;
             }
@@ -161,6 +179,30 @@ public class InteractableObject : MonoBehaviour
                 return;
             }
         }
+
+
+        // ========== 类型：先打开，再点击物品进入详情 ==========
+        if (objectType == ObjectType.OpenThenItem)
+        {
+            if (!isOpen)
+            {
+                // 第一次点击：打开物体
+                isOpen = true;
+                UpdateVisual();
+
+                // 显示可点击物品
+                if (clickableItem != null)
+                    clickableItem.SetActive(true);
+
+                UIManager.Instance.ShowHint($"打开了{gameObject.name}");
+                SaveState();
+                return;
+            }
+            // 打开后再次点击物体本身不做任何事（让玩家点击那个物品）
+            return;
+        }
+
+
 
         // ========== 类型：组合锁 ==========
         if (objectType == ObjectType.ComboLock)

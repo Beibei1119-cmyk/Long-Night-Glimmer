@@ -74,18 +74,40 @@ public class InsidePanel : MonoBehaviour
         // 获取当前场景名
         string sceneName = "PersistentScene";
 
+
+        // ========== 添加调试日志 ==========
+        Debug.Log($"=== InsidePanel.Show 调试 ===");
+        Debug.Log($"showKey={showKey}, showClip={showClip}, showKey2={showKey2}, showGem1={showGem1}, showGem2={showGem2}");
+
+        // 获取拾取状态
+        bool isKeyPickedUp = SceneStateManager.Instance.IsUIItemPickedUp(sceneName, "KeyItem");
+        bool isClipPickedUp = SceneStateManager.Instance.IsUIItemPickedUp(sceneName, "ClipItem");
+        bool isKey2PickedUp = SceneStateManager.Instance.IsUIItemPickedUp(sceneName, "Key2Item");
+        bool isGem1PickedUp = SceneStateManager.Instance.IsUIItemPickedUp(sceneName, "Gem1Item");
+        bool isGem2PickedUp = SceneStateManager.Instance.IsUIItemPickedUp(sceneName, "Gem2Item");
+
+        Debug.Log($"KeyItem 是否已拾取: {isKeyPickedUp}");
+        Debug.Log($"ClipItem 是否已拾取: {isClipPickedUp}");
+        Debug.Log($"Key2Item 是否已拾取: {isKey2PickedUp}");
+        Debug.Log($"Gem1Item 是否已拾取: {isGem1PickedUp}");
+        Debug.Log($"Gem2Item 是否已拾取: {isGem2PickedUp}");
+        // =================================
+
         // 根据保存的状态决定是否显示物品
-        bool keyShouldShow = showKey && !SceneStateManager.Instance.IsUIItemPickedUp(sceneName, "KeyItem");
-        bool clipShouldShow = showClip && !SceneStateManager.Instance.IsUIItemPickedUp(sceneName, "ClipItem");
-        bool key2ShouldShow = showKey2 && !SceneStateManager.Instance.IsUIItemPickedUp(sceneName, "Key2Item");
-        bool gem1ShouldShow = showGem1 && !SceneStateManager.Instance.IsUIItemPickedUp(sceneName, "Gem1Item");
-        bool gem2ShouldShow = showGem2 && !SceneStateManager.Instance.IsUIItemPickedUp(sceneName, "Gem2Item");
+        bool keyShouldShow = showKey && !isKeyPickedUp;
+        bool clipShouldShow = showClip && !isClipPickedUp;
+        bool key2ShouldShow = showKey2 && !isKey2PickedUp;
+        bool gem1ShouldShow = showGem1 && !isGem1PickedUp;
+        bool gem2ShouldShow = showGem2 && !isGem2PickedUp;
+
+        Debug.Log($"最终显示: key={keyShouldShow}, clip={clipShouldShow}, key2={key2ShouldShow}, gem1={gem1ShouldShow}, gem2={gem2ShouldShow}");
 
         if (keyItem != null) keyItem.SetActive(keyShouldShow);
         if (clipItem != null) clipItem.SetActive(clipShouldShow);
         if (key2Item != null) key2Item.SetActive(key2ShouldShow);
         if (gem1Item != null) gem1Item.SetActive(gem1ShouldShow);
         if (gem2Item != null) gem2Item.SetActive(gem2ShouldShow);
+
         gameObject.SetActive(true);
     }
     public void Hide()
