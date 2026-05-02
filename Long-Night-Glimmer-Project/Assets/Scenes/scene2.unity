@@ -3872,6 +3872,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1317929977}
   - component: {fileID: 1317929978}
+  - component: {fileID: 1317929979}
+  - component: {fileID: 1317929980}
   m_Layer: 0
   m_Name: "\u95E8-\u5F00"
   m_TagString: Untagged
@@ -3946,6 +3948,65 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1317929979
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317929976}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.11258221, y: 0.25518465}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.7916667, y: 8.741667}
+    newSize: {x: 3.35, y: 10.49}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.6358318, y: 6.3699512}
+  m_EdgeRadius: 0
+--- !u!114 &1317929980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317929976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8ea264a9eb56214d90afbe9a4f8be74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetSceneName: scene3
+  spawnPosition: {x: -2.93, y: -2.24, z: 0}
 --- !u!1 &1320579359
 GameObject:
   m_ObjectHideFlags: 0
@@ -4467,7 +4528,7 @@ MonoBehaviour:
   lockHint: "\u8FD9\u4E2A\u95E8\u9501\u7740\u5462..."
   requiredKey: "\u94F6\u94A5\u5319"
   correctPassword: --
-  isOpen: 0
+  isOpen: 1
   closedState: {fileID: 163322236}
   openState: {fileID: 1317929976}
   detailImage: {fileID: 0}
