@@ -349,6 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
   disableClickAfterUnlock: 0
   objectType: 4
   isLocked: 0
@@ -367,10 +368,12 @@ MonoBehaviour:
   hasKey2: 1
   hasGem1: 0
   hasGem2: 0
+  hasstone: 0
   hintMessage: "\u5730\u4E0A\u6709\u4E00\u4E9B\u788E\u77F3..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
   clickableItemDetailDescription: 
 --- !u!1 &375935209
 GameObject:
@@ -827,6 +830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
   disableClickAfterUnlock: 0
   objectType: 3
   isLocked: 1
@@ -845,10 +849,12 @@ MonoBehaviour:
   hasKey2: 1
   hasGem1: 0
   hasGem2: 0
+  hasstone: 0
   hintMessage: "\u8FD9\u662F\u4E00\u4E2A\u7269\u4F53"
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
   clickableItemDetailDescription: 
 --- !u!61 &483533388
 BoxCollider2D:
@@ -1426,6 +1432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
   disableClickAfterUnlock: 0
   objectType: 4
   isLocked: 0
@@ -1444,10 +1451,12 @@ MonoBehaviour:
   hasKey2: 1
   hasGem1: 0
   hasGem2: 0
+  hasstone: 0
   hintMessage: "\u8FD9\u91CC\u6709\u4E00\u6761\u7C97\u91CD\u7684\u94C1\u94FE..\u6709\u79CD\u597D\u538B\u6291\u7684\u611F\u89C9..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
   clickableItemDetailDescription: 
 --- !u!61 &586588781
 BoxCollider2D:
@@ -1624,6 +1633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
   disableClickAfterUnlock: 0
   objectType: 4
   isLocked: 1
@@ -1642,10 +1652,12 @@ MonoBehaviour:
   hasKey2: 1
   hasGem1: 0
   hasGem2: 0
+  hasstone: 0
   hintMessage: "\u6D1E\u53E3\u91CC\u6709\u4E00\u53EA...\u773C\u775B\uFF01\uFF01\uFF01\uFF01\uFF01"
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
   clickableItemDetailDescription: 
 --- !u!61 &593190919
 BoxCollider2D:
@@ -1790,6 +1802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
   disableClickAfterUnlock: 0
   objectType: 4
   isLocked: 1
@@ -1808,10 +1821,12 @@ MonoBehaviour:
   hasKey2: 1
   hasGem1: 0
   hasGem2: 0
+  hasstone: 0
   hintMessage: "\u5929\u82B1\u677F\u4E5F\u88AB\u9ED1\u8272\u6EB6\u6DB2\u8150\u8680\u4E86..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
   clickableItemDetailDescription: 
 --- !u!61 &616325091
 BoxCollider2D:
@@ -2355,6 +2370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
   disableClickAfterUnlock: 0
   objectType: 4
   isLocked: 0
@@ -2373,10 +2389,12 @@ MonoBehaviour:
   hasKey2: 1
   hasGem1: 0
   hasGem2: 0
+  hasstone: 0
   hintMessage: "\u5730\u4E0A\u6709\u4E00\u4E9B\u788E\u77F3..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
   clickableItemDetailDescription: 
 --- !u!1 &853694284
 GameObject:
@@ -2460,6 +2478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
   disableClickAfterUnlock: 0
   objectType: 5
   isLocked: 1
@@ -2478,10 +2497,12 @@ MonoBehaviour:
   hasKey2: 1
   hasGem1: 0
   hasGem2: 0
+  hasstone: 0
   hintMessage: "\u8FD9\u4E2A\u7BB1\u5B50\u4F3C\u4E4E\u9700\u8981\u653E\u5165\u76F8\u5E94\u788E\u7247\u89E3\u9501...."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
   clickableItemDetailDescription: 
 --- !u!61 &863416355
 BoxCollider2D:
@@ -2707,6 +2728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
   disableClickAfterUnlock: 0
   objectType: 4
   isLocked: 0
@@ -2725,10 +2747,12 @@ MonoBehaviour:
   hasKey2: 1
   hasGem1: 0
   hasGem2: 0
+  hasstone: 0
   hintMessage: "\u5730\u4E0A\u6709\u4E00\u4E9B\u788E\u77F3..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
   clickableItemDetailDescription: 
 --- !u!1 &988862078
 GameObject:
@@ -2828,6 +2852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
   disableClickAfterUnlock: 0
   objectType: 4
   isLocked: 0
@@ -2846,10 +2871,12 @@ MonoBehaviour:
   hasKey2: 1
   hasGem1: 0
   hasGem2: 0
+  hasstone: 0
   hintMessage: "\u9633\u5149\u4ECE\u6D1E\u53E3\u900F\u51FA\uFF0C\u597D\u6E29\u6696..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
   clickableItemDetailDescription: 
 --- !u!61 &988862082
 BoxCollider2D:
@@ -4150,6 +4177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
   disableClickAfterUnlock: 0
   objectType: 4
   isLocked: 1
@@ -4168,10 +4196,12 @@ MonoBehaviour:
   hasKey2: 1
   hasGem1: 0
   hasGem2: 0
+  hasstone: 0
   hintMessage: "\u90A3\u2026\u2026\u90A3\u662F\u4EC0\u4E48\u2026\u2026\u597D\u53EF\u6015\u2026\u2026"
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
   clickableItemDetailDescription: 
 --- !u!1 &1325135622
 GameObject:
@@ -4218,6 +4248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
   disableClickAfterUnlock: 0
   objectType: 3
   isLocked: 1
@@ -4236,10 +4267,12 @@ MonoBehaviour:
   hasKey2: 1
   hasGem1: 0
   hasGem2: 0
+  hasstone: 0
   hintMessage: "\u8FD9\u662F\u4E00\u4E2A\u7269\u4F53"
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
   clickableItemDetailDescription: 
 --- !u!61 &1325135625
 BoxCollider2D:
@@ -4522,13 +4555,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
   disableClickAfterUnlock: 1
   objectType: 0
   isLocked: 1
   lockHint: "\u8FD9\u4E2A\u95E8\u9501\u7740\u5462..."
   requiredKey: "\u94F6\u94A5\u5319"
   correctPassword: --
-  isOpen: 1
+  isOpen: 0
   closedState: {fileID: 163322236}
   openState: {fileID: 1317929976}
   detailImage: {fileID: 0}
@@ -4540,10 +4574,12 @@ MonoBehaviour:
   hasKey2: 1
   hasGem1: 0
   hasGem2: 0
+  hasstone: 0
   hintMessage: --
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
   clickableItemDetailDescription: 
 --- !u!61 &1511907152
 BoxCollider2D:
@@ -4733,6 +4769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
   disableClickAfterUnlock: 0
   objectType: 4
   isLocked: 0
@@ -4751,10 +4788,12 @@ MonoBehaviour:
   hasKey2: 1
   hasGem1: 0
   hasGem2: 0
+  hasstone: 0
   hintMessage: "\u4E00\u4E9B\u788E\u77F3..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
   clickableItemDetailDescription: 
 --- !u!1 &1612001421
 GameObject:
@@ -4801,6 +4840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
   disableClickAfterUnlock: 0
   objectType: 1
   isLocked: 1
@@ -4819,10 +4859,12 @@ MonoBehaviour:
   hasKey2: 0
   hasGem1: 1
   hasGem2: 0
+  hasstone: 0
   hintMessage: --
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
   clickableItemDetailDescription: 
 --- !u!61 &1612001424
 BoxCollider2D:
@@ -5012,6 +5054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
   disableClickAfterUnlock: 0
   objectType: 4
   isLocked: 0
@@ -5030,10 +5073,12 @@ MonoBehaviour:
   hasKey2: 1
   hasGem1: 0
   hasGem2: 0
+  hasstone: 0
   hintMessage: "\u5730\u4E0A\u6709\u4E00\u4E9B\u788E\u77F3..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
   clickableItemDetailDescription: 
 --- !u!1 &1658413529
 GameObject:
@@ -5349,6 +5394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
   disableClickAfterUnlock: 0
   objectType: 7
   isLocked: 0
@@ -5367,10 +5413,12 @@ MonoBehaviour:
   hasKey2: 1
   hasGem1: 0
   hasGem2: 0
+  hasstone: 0
   hintMessage: "\u4E00\u4E9B\u788E\u77F3..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 2074745238}
   clickableItemDetailImage: {fileID: 21300000, guid: 8f037abcc2012b644b4a5c9a3a763ac8, type: 3}
+  pickupItem: {fileID: 0}
   clickableItemDetailDescription: --
 --- !u!1 &1779802304
 GameObject:
@@ -5417,6 +5465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
   disableClickAfterUnlock: 0
   objectType: 3
   isLocked: 0
@@ -5435,10 +5484,12 @@ MonoBehaviour:
   hasKey2: 1
   hasGem1: 0
   hasGem2: 0
+  hasstone: 0
   hintMessage: --
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
   clickableItemDetailDescription: 
 --- !u!61 &1779802307
 BoxCollider2D:
@@ -5530,6 +5581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
   disableClickAfterUnlock: 0
   objectType: 6
   isLocked: 0
@@ -5542,16 +5594,18 @@ MonoBehaviour:
   detailImage: {fileID: 0}
   detailDescription: "\u7269\u54C1\u63CF\u8FF0"
   detailHint: 
-  insideBackgroundImage: {fileID: 21300000, guid: b05a3cc7180ea644e95b103f84f4f0dc, type: 3}
+  insideBackgroundImage: {fileID: 21300000, guid: b3f8b8ec7ca4b4749b875767081b6579, type: 3}
   hasKey: 0
   hasClip: 0
   hasKey2: 0
   hasGem1: 0
   hasGem2: 1
+  hasstone: 0
   hintMessage: "\u4F3C\u4E4E\u6709\u4EC0\u4E48\u4E1C\u897F\u3002\u5934\u597D\u6655\u2026\u2026\u597D\u96BE\u53D7\u2026\u2026\u6211\u4E0D\u60F3\u770B\u4E86..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
   clickableItemDetailDescription: 
 --- !u!61 &1783110020
 BoxCollider2D:
@@ -5943,6 +5997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
   disableClickAfterUnlock: 0
   objectType: 4
   isLocked: 1
@@ -5961,10 +6016,12 @@ MonoBehaviour:
   hasKey2: 1
   hasGem1: 0
   hasGem2: 0
+  hasstone: 0
   hintMessage: "\u9ED1\u8272\u6EB6\u6DB2\u5DF2\u8513\u5EF6\u81F3\u5899\u9762..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
   clickableItemDetailDescription: 
 --- !u!1 &2031484817
 GameObject:
@@ -6064,6 +6121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
   disableClickAfterUnlock: 0
   objectType: 4
   isLocked: 0
@@ -6082,10 +6140,12 @@ MonoBehaviour:
   hasKey2: 1
   hasGem1: 0
   hasGem2: 0
+  hasstone: 0
   hintMessage: "\u5730\u4E0A..\u662F\u6050\u6016\u7684\u9ED1\u8272\u6EB6\u6DB2"
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
   clickableItemDetailDescription: 
 --- !u!61 &2031484821
 BoxCollider2D:

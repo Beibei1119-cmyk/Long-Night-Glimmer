@@ -41,7 +41,7 @@ public class UIManager : MonoBehaviour
     //public GameObject comboLockPanel;  // 拖入 ComboLockPanel_BoxA
     [Header("组合锁面板")]
     public ComboLockPanel comboLockPanel;  // 改成 ComboLockPanel 类型，不是 GameObject
-
+    public ComboLockPanel ComboLockPanel_BoxB;
 
 
     private void Awake()
@@ -117,6 +117,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void ShowComboLockPanel_BoxB(InteractableObject target)
+    {
+        if (ComboLockPanel_BoxB != null)
+            ComboLockPanel_BoxB.Open(target);
+    }
     //============================================================
 
 

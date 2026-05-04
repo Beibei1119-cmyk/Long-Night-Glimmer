@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
 {
+
     public enum ObjectType
     {
         KeyLock,        // 钥匙锁（箱子、抽屉）/
@@ -16,6 +17,9 @@ public class InteractableObject : MonoBehaviour
              // ... 其他类型 ...
         OpenThenPickup   // 新增：先打开 → 出现可拾取物品
     }
+
+    [Header("组合锁设置")]
+    public int comboLockPanelIndex = 1;  // 1=面板A, 2=面板B
 
     [Header("打开后禁用点击")]
     public bool disableClickAfterUnlock = false;  // 解锁后禁用点击
@@ -234,9 +238,21 @@ public class InteractableObject : MonoBehaviour
         // ========== 类型：组合锁 ==========
         if (objectType == ObjectType.ComboLock)
         {
+            //if (!isOpen)
+            //{
+            //    UIManager.Instance.ShowComboLockPanel(this);
+            //    UIManager.Instance.ShowHint(hintMessage);
+            //    return;
+            //}
+
             if (!isOpen)
             {
-                UIManager.Instance.ShowComboLockPanel(this);
+                // 根据箱子选择哪个面板
+                if (comboLockPanelIndex == 1)
+                    UIManager.Instance.ShowComboLockPanel(this);
+                else if (comboLockPanelIndex == 2)
+                    UIManager.Instance.ShowComboLockPanel_BoxB(this);
+
                 UIManager.Instance.ShowHint(hintMessage);
                 return;
             }
