@@ -215,10 +215,10 @@ public class UIManager : MonoBehaviour
     //    if (insidePanel != null)
     //        insidePanel.Show(bgImage, showKey, showClip);
     //}
-    public void ShowInsidePanel(Sprite bgImage, bool showKey, bool showClip, bool showKey2, bool showGem1, bool showGem2)
+    public void ShowInsidePanel(Sprite bgImage, bool showKey, bool showClip, bool showKey2, bool showGem1, bool showGem2, bool showstone)
     {
         if (insidePanel != null)
-            insidePanel.Show(bgImage, showKey, showClip, showKey2, showGem1, showGem2);
+            insidePanel.Show(bgImage, showKey, showClip, showKey2, showGem1, showGem2, showstone);
     }
 
     public void HideInsidePanel()

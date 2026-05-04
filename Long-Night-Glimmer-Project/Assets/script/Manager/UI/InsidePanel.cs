@@ -9,7 +9,7 @@ public class InsidePanel : MonoBehaviour
     public GameObject key2Item;     // 银钥匙（新增）
     public GameObject gem1Item;     // 宝石1（新增）
     public GameObject gem2Item;     // 宝石2（新增）
-
+    public GameObject stoneItem;  // 铁钥匙 ← 新增
 
 
     public Button closeButton;      // 关闭按钮（还是按钮）
@@ -65,7 +65,7 @@ public class InsidePanel : MonoBehaviour
 
 
 
-    public void Show(Sprite bgImage, bool showKey, bool showClip, bool showKey2, bool showGem1, bool showGem2)
+    public void Show(Sprite bgImage, bool showKey, bool showClip, bool showKey2, bool showGem1, bool showGem2, bool showstone)
     {
         // 设置背景图
         if (backgroundImage != null && bgImage != null)
@@ -85,12 +85,15 @@ public class InsidePanel : MonoBehaviour
         bool isKey2PickedUp = SceneStateManager.Instance.IsUIItemPickedUp(sceneName, "Key2Item");
         bool isGem1PickedUp = SceneStateManager.Instance.IsUIItemPickedUp(sceneName, "Gem1Item");
         bool isGem2PickedUp = SceneStateManager.Instance.IsUIItemPickedUp(sceneName, "Gem2Item");
+        bool isstonePickedUp = SceneStateManager.Instance.IsUIItemPickedUp(sceneName, "stoneItem"); // 新增
+
 
         Debug.Log($"KeyItem 是否已拾取: {isKeyPickedUp}");
         Debug.Log($"ClipItem 是否已拾取: {isClipPickedUp}");
         Debug.Log($"Key2Item 是否已拾取: {isKey2PickedUp}");
         Debug.Log($"Gem1Item 是否已拾取: {isGem1PickedUp}");
         Debug.Log($"Gem2Item 是否已拾取: {isGem2PickedUp}");
+
         // =================================
 
         // 根据保存的状态决定是否显示物品
@@ -99,6 +102,7 @@ public class InsidePanel : MonoBehaviour
         bool key2ShouldShow = showKey2 && !isKey2PickedUp;
         bool gem1ShouldShow = showGem1 && !isGem1PickedUp;
         bool gem2ShouldShow = showGem2 && !isGem2PickedUp;
+        bool stoneShouldShow = showstone && !isstonePickedUp; // 新增
 
         Debug.Log($"最终显示: key={keyShouldShow}, clip={clipShouldShow}, key2={key2ShouldShow}, gem1={gem1ShouldShow}, gem2={gem2ShouldShow}");
 
@@ -107,6 +111,7 @@ public class InsidePanel : MonoBehaviour
         if (key2Item != null) key2Item.SetActive(key2ShouldShow);
         if (gem1Item != null) gem1Item.SetActive(gem1ShouldShow);
         if (gem2Item != null) gem2Item.SetActive(gem2ShouldShow);
+        if (stoneItem != null) stoneItem.SetActive(stoneShouldShow); // 新增
 
         gameObject.SetActive(true);
     }

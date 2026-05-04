@@ -12,10 +12,12 @@ public class InteractableObject : MonoBehaviour
         ComboLock,      //组合锁/
         OpenThenInside,    // 新增：先打开 → 内部面板（窗户里有东西）
 
-        OpenThenItem       // 先打开 → 出现可点击物品 → 点击物品进入详
+        OpenThenItem,     // 先打开 → 出现可点击物品 → 点击物品进入详
+             // ... 其他类型 ...
+        OpenThenPickup   // 新增：先打开 → 出现可拾取物品
     }
 
-    [Header("门设置")]
+    [Header("打开后禁用点击")]
     public bool disableClickAfterUnlock = false;  // 解锁后禁用点击
 
     [Header("交互类型")]
@@ -51,7 +53,7 @@ public class InteractableObject : MonoBehaviour
     public bool hasKey2 = false;   //银钥匙
     public bool hasGem1 = false;      // 宝石1
     public bool hasGem2 = false;      // 宝石2
-
+    public bool hasstone = false; //铁钥匙
 
 
     // ========== 提示框设置（OnlyHint 用）==========
@@ -65,6 +67,10 @@ public class InteractableObject : MonoBehaviour
     [Header("打开后可点击物品")]
     public GameObject clickableItem;  // 打开后显示的可点击物品
     public Sprite clickableItemDetailImage;
+
+    [Header("打开后可拾取物品")]
+    public GameObject pickupItem;  // 打开后显示的可拾取物品
+
     [TextArea(3, 5)]
     public string clickableItemDetailDescription;
 
@@ -101,7 +107,7 @@ public class InteractableObject : MonoBehaviour
                 objectType == ObjectType.ComboLock||
                 objectType == ObjectType.OpenThenInside)
             {
-                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2);
+                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2, hasstone);
                 UIManager.Instance.ShowHint($"打开{gameObject.name}");
                 return;
             }
@@ -115,7 +121,9 @@ public class InteractableObject : MonoBehaviour
             }
 
             // ========== 新增：OpenThenItem 打开后不做任何事 ==========
-            if (objectType == ObjectType.OpenThenItem)
+            if (objectType == ObjectType.OpenThenItem ||
+                objectType == ObjectType.OpenThenPickup
+                )
             {
                 return;  // 让玩家点击那个物品
             }
@@ -123,6 +131,25 @@ public class InteractableObject : MonoBehaviour
             // 默认
             return;
         }
+
+        // ========== 类型：先打开，再点击物品直接拾取 ==========
+        if (objectType == ObjectType.OpenThenPickup)
+        {
+            if (!isOpen)
+            {
+                isOpen = true;
+                UpdateVisual();
+
+                if (pickupItem != null)
+                    pickupItem.SetActive(true);
+
+                UIManager.Instance.ShowHint($"打开了{gameObject.name}");
+                SaveState();
+                return;
+            }
+            return;
+        }
+
         // ========== 类型1：只显示提示 ==========
         if (objectType == ObjectType.OnlyHint)
         {
@@ -175,7 +202,7 @@ public class InteractableObject : MonoBehaviour
             else
             {
                 // 已打开：显示内部面板（里面有可拾取物品）
-                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2);
+                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2, hasstone);
                 return;
             }
         }
@@ -216,7 +243,7 @@ public class InteractableObject : MonoBehaviour
             else
             {
                 // 已打开：显示内部面板（里面有可拾取物品）
-                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2);
+                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2 , hasstone);
                 return;
             }
         }
@@ -232,7 +259,7 @@ public class InteractableObject : MonoBehaviour
             else
             {
                 // 已打开：显示内部面板（里面有可拾取物品）
-                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2);
+                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2, hasstone);
                 return;
             }
         }
@@ -249,7 +276,7 @@ public class InteractableObject : MonoBehaviour
             else
             {
                 // 已打开：显示内部面板（里面有可拾取物品）
-                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2);
+                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2, hasstone);
                 return;
             }
         }
