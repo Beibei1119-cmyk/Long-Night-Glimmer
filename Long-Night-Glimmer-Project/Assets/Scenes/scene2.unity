@@ -369,6 +369,7 @@ MonoBehaviour:
   hasGem1: 0
   hasGem2: 0
   hasstone: 0
+  hasBoard: 0
   hintMessage: "\u5730\u4E0A\u6709\u4E00\u4E9B\u788E\u77F3..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
@@ -850,6 +851,7 @@ MonoBehaviour:
   hasGem1: 0
   hasGem2: 0
   hasstone: 0
+  hasBoard: 0
   hintMessage: "\u8FD9\u662F\u4E00\u4E2A\u7269\u4F53"
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
@@ -1452,6 +1454,7 @@ MonoBehaviour:
   hasGem1: 0
   hasGem2: 0
   hasstone: 0
+  hasBoard: 0
   hintMessage: "\u8FD9\u91CC\u6709\u4E00\u6761\u7C97\u91CD\u7684\u94C1\u94FE..\u6709\u79CD\u597D\u538B\u6291\u7684\u611F\u89C9..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
@@ -1653,6 +1656,7 @@ MonoBehaviour:
   hasGem1: 0
   hasGem2: 0
   hasstone: 0
+  hasBoard: 0
   hintMessage: "\u6D1E\u53E3\u91CC\u6709\u4E00\u53EA...\u773C\u775B\uFF01\uFF01\uFF01\uFF01\uFF01"
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
@@ -1822,6 +1826,7 @@ MonoBehaviour:
   hasGem1: 0
   hasGem2: 0
   hasstone: 0
+  hasBoard: 0
   hintMessage: "\u5929\u82B1\u677F\u4E5F\u88AB\u9ED1\u8272\u6EB6\u6DB2\u8150\u8680\u4E86..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
@@ -2390,6 +2395,7 @@ MonoBehaviour:
   hasGem1: 0
   hasGem2: 0
   hasstone: 0
+  hasBoard: 0
   hintMessage: "\u5730\u4E0A\u6709\u4E00\u4E9B\u788E\u77F3..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
@@ -2498,6 +2504,7 @@ MonoBehaviour:
   hasGem1: 0
   hasGem2: 0
   hasstone: 0
+  hasBoard: 0
   hintMessage: "\u8FD9\u4E2A\u7BB1\u5B50\u4F3C\u4E4E\u9700\u8981\u653E\u5165\u76F8\u5E94\u788E\u7247\u89E3\u9501...."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
@@ -2748,6 +2755,7 @@ MonoBehaviour:
   hasGem1: 0
   hasGem2: 0
   hasstone: 0
+  hasBoard: 0
   hintMessage: "\u5730\u4E0A\u6709\u4E00\u4E9B\u788E\u77F3..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
@@ -2872,6 +2880,7 @@ MonoBehaviour:
   hasGem1: 0
   hasGem2: 0
   hasstone: 0
+  hasBoard: 0
   hintMessage: "\u9633\u5149\u4ECE\u6D1E\u53E3\u900F\u51FA\uFF0C\u597D\u6E29\u6696..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
@@ -3055,7 +3064,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.107966185, y: -3.185007}
+  m_Offset: {x: 0.10059738, y: -3.1044536}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3066,7 +3075,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5521159, y: 1.4044476}
+  m_Size: {x: 1.9795132, y: 2.1550684}
   m_EdgeRadius: 0
 --- !u!1 &1034346539
 GameObject:
@@ -4197,6 +4206,7 @@ MonoBehaviour:
   hasGem1: 0
   hasGem2: 0
   hasstone: 0
+  hasBoard: 0
   hintMessage: "\u90A3\u2026\u2026\u90A3\u662F\u4EC0\u4E48\u2026\u2026\u597D\u53EF\u6015\u2026\u2026"
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
@@ -4268,6 +4278,7 @@ MonoBehaviour:
   hasGem1: 0
   hasGem2: 0
   hasstone: 0
+  hasBoard: 0
   hintMessage: "\u8FD9\u662F\u4E00\u4E2A\u7269\u4F53"
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
@@ -4575,6 +4586,7 @@ MonoBehaviour:
   hasGem1: 0
   hasGem2: 0
   hasstone: 0
+  hasBoard: 0
   hintMessage: --
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
@@ -4613,7 +4625,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06393528, y: 0.2305274}
+  m_Offset: {x: -0.07869148, y: -0.17523241}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4624,7 +4636,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3504353, y: 6.2254286}
+  m_Size: {x: 1.3799477, y: 7.036948}
   m_EdgeRadius: 0
 --- !u!1 &1534657005
 GameObject:
@@ -4789,6 +4801,7 @@ MonoBehaviour:
   hasGem1: 0
   hasGem2: 0
   hasstone: 0
+  hasBoard: 0
   hintMessage: "\u4E00\u4E9B\u788E\u77F3..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
@@ -4860,6 +4873,7 @@ MonoBehaviour:
   hasGem1: 1
   hasGem2: 0
   hasstone: 0
+  hasBoard: 0
   hintMessage: --
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
@@ -5074,6 +5088,7 @@ MonoBehaviour:
   hasGem1: 0
   hasGem2: 0
   hasstone: 0
+  hasBoard: 0
   hintMessage: "\u5730\u4E0A\u6709\u4E00\u4E9B\u788E\u77F3..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
@@ -5414,6 +5429,7 @@ MonoBehaviour:
   hasGem1: 0
   hasGem2: 0
   hasstone: 0
+  hasBoard: 0
   hintMessage: "\u4E00\u4E9B\u788E\u77F3..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 2074745238}
@@ -5485,6 +5501,7 @@ MonoBehaviour:
   hasGem1: 0
   hasGem2: 0
   hasstone: 0
+  hasBoard: 0
   hintMessage: --
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
@@ -5601,6 +5618,7 @@ MonoBehaviour:
   hasGem1: 0
   hasGem2: 1
   hasstone: 0
+  hasBoard: 0
   hintMessage: "\u4F3C\u4E4E\u6709\u4EC0\u4E48\u4E1C\u897F\u3002\u5934\u597D\u6655\u2026\u2026\u597D\u96BE\u53D7\u2026\u2026\u6211\u4E0D\u60F3\u770B\u4E86..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
@@ -6017,6 +6035,7 @@ MonoBehaviour:
   hasGem1: 0
   hasGem2: 0
   hasstone: 0
+  hasBoard: 0
   hintMessage: "\u9ED1\u8272\u6EB6\u6DB2\u5DF2\u8513\u5EF6\u81F3\u5899\u9762..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
@@ -6141,6 +6160,7 @@ MonoBehaviour:
   hasGem1: 0
   hasGem2: 0
   hasstone: 0
+  hasBoard: 0
   hintMessage: "\u5730\u4E0A..\u662F\u6050\u6016\u7684\u9ED1\u8272\u6EB6\u6DB2"
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}

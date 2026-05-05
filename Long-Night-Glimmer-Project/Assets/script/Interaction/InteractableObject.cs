@@ -19,7 +19,7 @@ public class InteractableObject : MonoBehaviour
     }
 
     [Header("组合锁设置")]
-    public int comboLockPanelIndex = 1;  // 1=面板A, 2=面板B
+    public int comboLockPanelIndex = 1;  // 1=BoxA, 2=BoxB, 3=BoxC
 
     [Header("打开后禁用点击")]
     public bool disableClickAfterUnlock = false;  // 解锁后禁用点击
@@ -58,7 +58,7 @@ public class InteractableObject : MonoBehaviour
     public bool hasGem1 = false;      // 宝石1
     public bool hasGem2 = false;      // 宝石2
     public bool hasstone = false; //铁钥匙
-
+    public bool hasBoard = false;    // 木板 ← 新增
 
     // ========== 提示框设置（OnlyHint 用）==========
     [Header("提示框设置")]
@@ -111,7 +111,7 @@ public class InteractableObject : MonoBehaviour
                 objectType == ObjectType.ComboLock||
                 objectType == ObjectType.OpenThenInside)
             {
-                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2, hasstone);
+                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2, hasstone, hasBoard);
                 UIManager.Instance.ShowHint($"打开{gameObject.name}");
                 return;
             }
@@ -177,7 +177,7 @@ public class InteractableObject : MonoBehaviour
                 // 第一次点击：打开物体
                 isOpen = true;
                 UpdateVisual();
-                UIManager.Instance.ShowHint($"打开了{gameObject.name}");
+                UIManager.Instance.ShowHint(detailHint);
                 SaveState();
                 return;
             }
@@ -206,7 +206,7 @@ public class InteractableObject : MonoBehaviour
             else
             {
                 // 已打开：显示内部面板（里面有可拾取物品）
-                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2, hasstone);
+                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2, hasstone, hasBoard);
                 return;
             }
         }
@@ -252,6 +252,8 @@ public class InteractableObject : MonoBehaviour
                     UIManager.Instance.ShowComboLockPanel(this);
                 else if (comboLockPanelIndex == 2)
                     UIManager.Instance.ShowComboLockPanel_BoxB(this);
+                else if (comboLockPanelIndex == 3)
+                    UIManager.Instance.ShowComboLockPanel_BoxC(this);
 
                 UIManager.Instance.ShowHint(hintMessage);
                 return;
@@ -259,7 +261,7 @@ public class InteractableObject : MonoBehaviour
             else
             {
                 // 已打开：显示内部面板（里面有可拾取物品）
-                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2 , hasstone);
+                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2 , hasstone, hasBoard);
                 return;
             }
         }
@@ -275,7 +277,7 @@ public class InteractableObject : MonoBehaviour
             else
             {
                 // 已打开：显示内部面板（里面有可拾取物品）
-                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2, hasstone);
+                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2, hasstone , hasBoard);
                 return;
             }
         }
@@ -292,7 +294,7 @@ public class InteractableObject : MonoBehaviour
             else
             {
                 // 已打开：显示内部面板（里面有可拾取物品）
-                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2, hasstone);
+                UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2, hasstone, hasBoard);
                 return;
             }
         }

@@ -42,6 +42,7 @@ public class UIManager : MonoBehaviour
     [Header("组合锁面板")]
     public ComboLockPanel comboLockPanel;  // 改成 ComboLockPanel 类型，不是 GameObject
     public ComboLockPanel ComboLockPanel_BoxB;
+    public ComboLockPanel comboLockPanel_BoxC;  // 新增
 
 
     private void Awake()
@@ -124,6 +125,11 @@ public class UIManager : MonoBehaviour
     }
     //============================================================
 
+    public void ShowComboLockPanel_BoxC(InteractableObject target)
+    {
+        if (comboLockPanel_BoxC != null)
+            comboLockPanel_BoxC.Open(target);
+    }
 
     public void RefreshHotbar()
     {
@@ -220,10 +226,10 @@ public class UIManager : MonoBehaviour
     //    if (insidePanel != null)
     //        insidePanel.Show(bgImage, showKey, showClip);
     //}
-    public void ShowInsidePanel(Sprite bgImage, bool showKey, bool showClip, bool showKey2, bool showGem1, bool showGem2, bool showstone)
+    public void ShowInsidePanel(Sprite bgImage, bool showKey, bool showClip, bool showKey2, bool showGem1, bool showGem2, bool showstone, bool showBoard)
     {
         if (insidePanel != null)
-            insidePanel.Show(bgImage, showKey, showClip, showKey2, showGem1, showGem2, showstone);
+            insidePanel.Show(bgImage, showKey, showClip, showKey2, showGem1, showGem2, showstone, showBoard);
     }
 
     public void HideInsidePanel()
