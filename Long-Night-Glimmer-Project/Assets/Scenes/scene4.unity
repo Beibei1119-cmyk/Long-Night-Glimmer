@@ -1495,6 +1495,9 @@ GameObject:
   m_Component:
   - component: {fileID: 823395572}
   - component: {fileID: 823395571}
+  - component: {fileID: 823395573}
+  - component: {fileID: 823395574}
+  - component: {fileID: 823395575}
   m_Layer: 0
   m_Name: "\u4E66"
   m_TagString: Untagged
@@ -1569,6 +1572,102 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &823395573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823395570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9351e8918a0800a4b81c7ba1c508e614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &823395574
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823395570}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.52, y: 1.02}
+    newSize: {x: 2.52, y: 1.02}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.52, y: 1.02}
+  m_EdgeRadius: 0
+--- !u!114 &823395575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823395570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
+  disableClickAfterUnlock: 0
+  objectType: 4
+  isLocked: 1
+  lockHint: "\u8FD9\u4E2A\u9501\u7740\u5462"
+  requiredKey: "\u94DC\u94A5\u5319"
+  correctPassword: 1234
+  isOpen: 0
+  closedState: {fileID: 0}
+  openState: {fileID: 0}
+  detailImage: {fileID: 0}
+  detailDescription: "\u7269\u54C1\u63CF\u8FF0"
+  detailHint: "\u67E5\u770B\u7269\u54C1"
+  insideBackgroundImage: {fileID: 0}
+  hasKey: 0
+  hasClip: 0
+  hasKey2: 0
+  hasGem1: 0
+  hasGem2: 0
+  hasstone: 0
+  hasBoard: 0
+  hintMessage: "\u6253\u5F00\u4E86\u4E00\u672C\u65E5\u8BB0\u672C"
+  openSound: {fileID: 0}
+  clickableItem: {fileID: 0}
+  clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
+  clickableItemDetailDescription: 
 --- !u!1 &855474404
 GameObject:
   m_ObjectHideFlags: 0
