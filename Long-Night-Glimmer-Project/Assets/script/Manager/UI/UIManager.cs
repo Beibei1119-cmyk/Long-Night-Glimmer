@@ -42,7 +42,8 @@ public class UIManager : MonoBehaviour
     [Header("组合锁面板")]
     public ComboLockPanel comboLockPanel;  // 改成 ComboLockPanel 类型，不是 GameObject
     public ComboLockPanel ComboLockPanel_BoxB;
-    public ComboLockPanel comboLockPanel_BoxC;  // 新增
+    public ComboLockPanel comboLockPanel_BoxC;  
+    public ComboLockPanel comboLockPanel_BoxD;  // 新增
 
 
     private void Awake()
@@ -130,6 +131,15 @@ public class UIManager : MonoBehaviour
         if (comboLockPanel_BoxC != null)
             comboLockPanel_BoxC.Open(target);
     }
+
+
+    public void ShowComboLockPanel_BoxD(InteractableObject target)
+    {
+        if (comboLockPanel_BoxD != null)
+            comboLockPanel_BoxD.Open(target);
+    }
+
+
 
     public void RefreshHotbar()
     {

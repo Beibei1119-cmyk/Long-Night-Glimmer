@@ -254,6 +254,9 @@ public class InteractableObject : MonoBehaviour
                     UIManager.Instance.ShowComboLockPanel_BoxB(this);
                 else if (comboLockPanelIndex == 3)
                     UIManager.Instance.ShowComboLockPanel_BoxC(this);
+                else if (comboLockPanelIndex == 4)
+                    UIManager.Instance.ShowComboLockPanel_BoxD(this);
+
 
                 UIManager.Instance.ShowHint(hintMessage);
                 return;
