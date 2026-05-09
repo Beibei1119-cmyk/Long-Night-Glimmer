@@ -273,9 +273,17 @@ public class BookPro : MonoBehaviour
             
         }
         #endregion
+
+        // ========== 新增：强制把 background 置底层 ==========
+        Transform bg = transform.Find("background");
+        if (bg != null)
+        {
+            bg.SetSiblingIndex(0);
+        }
+        // =============================================
     }
 
-  
+
     //mouse interaction events call back
     public void OnMouseDragRightPage()
     {
