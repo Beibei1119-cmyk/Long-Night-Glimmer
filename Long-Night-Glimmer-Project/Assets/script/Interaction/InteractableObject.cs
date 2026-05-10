@@ -79,6 +79,8 @@ public class InteractableObject : MonoBehaviour
     public string clickableItemDetailDescription;
 
 
+   
+
     private void Start()
     {
         UpdateVisual();
@@ -321,7 +323,14 @@ public class InteractableObject : MonoBehaviour
             closedState.SetActive(!isOpen);
         if (openState != null)
             openState.SetActive(isOpen);
+
+      
     }
+    private bool HasUnpickedItems()
+    {
+        return hasKey || hasClip || hasKey2 || hasGem1 || hasGem2 || hasstone || hasBoard;
+    }
+
 
     private void SaveState()
     {

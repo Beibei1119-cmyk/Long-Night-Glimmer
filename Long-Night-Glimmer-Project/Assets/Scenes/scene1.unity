@@ -2166,6 +2166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: "\u53D1\u5939"
+  saveId: 
 --- !u!61 &1216328069
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2767,6 +2768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: "\u62FC\u56FE1"
+  saveId: pintu1
 --- !u!212 &1473911908
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3248,6 +3250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: "\u94DC\u94A5\u5319"
+  saveId: 
 --- !u!1 &1685224918
 GameObject:
   m_ObjectHideFlags: 0
@@ -3847,11 +3850,11 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 853889125}
-  - {fileID: 1473911909}
   - {fileID: 466103335}
   - {fileID: 1880786236}
   - {fileID: 205914953}
   - {fileID: 523979614}
+  - {fileID: 1473911909}
   - {fileID: 1932759481}
   - {fileID: 1447425719}
   - {fileID: 1622067705}

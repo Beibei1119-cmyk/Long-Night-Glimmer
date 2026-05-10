@@ -30,7 +30,8 @@ public class SceneStateManager : MonoBehaviour
 
     private void Start()
     {
-        // 监听场景加载完成事件
+       
+       // 监听场景加载完成事件
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -119,5 +120,37 @@ public class SceneStateManager : MonoBehaviour
         // 只打印日志，不做实际隐藏/显示
         // 实际显示/隐藏由 InsidePanel.Show() 控制
         Debug.Log($"[RestoreUIItems] 场景: {sceneName}, 已保存 {pickedUpItems.Count} 条记录");
+    }
+
+
+    //=================================================
+    // 组合锁状态
+    private Dictionary<string, bool> comboSavedSlots = new Dictionary<string, bool>();
+
+    public void SetComboSlotState(string sceneName, string key, bool isFilled)
+    {
+        string fullKey = $"{sceneName}_{key}";
+        comboSavedSlots[fullKey] = isFilled;
+    }
+
+    public bool GetComboSlotState(string sceneName, string key)
+    {
+        string fullKey = $"{sceneName}_{key}";
+        return comboSavedSlots.ContainsKey(fullKey) && comboSavedSlots[fullKey];
+    }
+    //=================================================
+
+
+    // 场景物品拾取状态
+    private Dictionary<string, bool> pickedUpSceneItems = new Dictionary<string, bool>();
+
+    public void SavePickupItemState(string itemId, bool isPickedUp)
+    {
+        pickedUpSceneItems[itemId] = isPickedUp;
+    }
+
+    public bool IsPickupItemPickedUp(string itemId)
+    {
+        return pickedUpSceneItems.ContainsKey(itemId) && pickedUpSceneItems[itemId];
     }
 }

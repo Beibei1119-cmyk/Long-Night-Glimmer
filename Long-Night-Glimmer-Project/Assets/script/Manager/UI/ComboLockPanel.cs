@@ -16,11 +16,17 @@ public class ComboLockPanel : MonoBehaviour
     public void Open(InteractableObject box)
     {
         targetBox = box;
-        // 重置所有凹槽状态
-        foreach (var slot in slots)
-        {
-            slot.ResetSlot();
-        }
+        //// 重置所有凹槽状态
+        //foreach (var slot in slots)
+        //{
+        //    slot.ResetSlot();
+        //}
+
+//===========================================
+        // 改为：加载保存的状态，而不是重置
+        LoadAllSlots();
+//==============================================
+
         gameObject.SetActive(true);
     }
 
@@ -46,4 +52,26 @@ public class ComboLockPanel : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+
+    //======================================================
+    // 新增：加载所有凹槽的保存状态
+    private void LoadAllSlots()
+    {
+        if (targetBox == null) return;
+
+        string sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        string boxName = targetBox.name;
+
+        foreach (var slot in slots)
+        {
+            if (slot == null) continue;
+
+            string key = $"{boxName}_{slot.slotId}";
+            bool isFilled = SceneStateManager.Instance.GetComboSlotState(sceneName, key);
+            slot.LoadState(isFilled);
+        }
+    }
+    //======================================================
+
 }

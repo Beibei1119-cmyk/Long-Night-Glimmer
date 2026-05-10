@@ -423,6 +423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: "\u836F\u4E38"
+  saveId: pil
 --- !u!61 &227395572
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1421,6 +1422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: "\u7EA2\u5B9D\u77F3"
+  saveId: redgem
 --- !u!61 &524062540
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3977,6 +3979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: "\u94C1\u94A5\u5319"
+  saveId: 
 --- !u!1 &1588345507
 GameObject:
   m_ObjectHideFlags: 0
@@ -4054,6 +4057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: "\u62FC\u56FE3"
+  saveId: pintu3
 --- !u!212 &1588345510
 SpriteRenderer:
   m_ObjectHideFlags: 0

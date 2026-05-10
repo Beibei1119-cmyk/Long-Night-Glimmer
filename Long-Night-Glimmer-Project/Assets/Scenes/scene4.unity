@@ -521,6 +521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: "\u62FC\u56FE6"
+  saveId: pintu6
 --- !u!1 &101975184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1559,6 +1560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: "\u592A\u9633\u724C"
+  saveId: board1
 --- !u!1 &808128734
 GameObject:
   m_ObjectHideFlags: 0
@@ -3079,6 +3081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: "\u6708\u4EAE\u724C"
+  saveId: board4
 --- !u!212 &1311883995
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3324,6 +3327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: "\u6545\u4E8B\u4E66\u724C"
+  saveId: board3
 --- !u!1 &1491218110
 GameObject:
   m_ObjectHideFlags: 0
@@ -3770,6 +3774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: "\u62FC\u56FE4"
+  saveId: pintu4
 --- !u!61 &1938430915
 BoxCollider2D:
   m_ObjectHideFlags: 0
