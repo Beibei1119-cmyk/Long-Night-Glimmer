@@ -9348,6 +9348,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224000011848633014, guid: 3b11136cfd0d23540940791a20f3e1de, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 168.73
+      objectReference: {fileID: 0}
     - target: {fileID: 224000012042568866, guid: 3b11136cfd0d23540940791a20f3e1de, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
@@ -9483,6 +9487,10 @@ PrefabInstance:
     - target: {fileID: 224000012149926270, guid: 3b11136cfd0d23540940791a20f3e1de, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000012674509358, guid: 3b11136cfd0d23540940791a20f3e1de, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 168.73
       objectReference: {fileID: 0}
     - target: {fileID: 224000013301220784, guid: 3b11136cfd0d23540940791a20f3e1de, type: 3}
       propertyPath: m_SizeDelta.x

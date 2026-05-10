@@ -1045,6 +1045,7 @@ GameObject:
   m_Component:
   - component: {fileID: 550481028}
   - component: {fileID: 550481027}
+  - component: {fileID: 550481029}
   m_Layer: 0
   m_Name: "\u4E66\u684C"
   m_TagString: Untagged
@@ -1119,6 +1120,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &550481029
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550481026}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.3935809, y: -0.65340704}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 7.08, y: 4.51}
+    newSize: {x: 7.08, y: 4.51}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.757619, y: 1.1122838}
+  m_EdgeRadius: 0
 --- !u!1 &577531956
 GameObject:
   m_ObjectHideFlags: 0
@@ -2434,8 +2480,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -244697257
-  m_SortingLayer: 2
+  m_SortingLayerID: -565526655
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 69712fdfc87314f47b9e03e4ed7da0bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2534,7 +2580,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.6694946, y: 0.16737413}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2545,7 +2591,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 25.086124, y: 16.72}
+  m_Size: {x: 26.425114, y: 17.054749}
   m_EdgeRadius: 0
 --- !u!1 &1149217530
 GameObject:
@@ -3333,7 +3379,7 @@ MonoBehaviour:
   lockHint: "\u8FD9\u4E2A\u9501\u7740\u5462"
   requiredKey: "\u94DC\u94A5\u5319"
   correctPassword: 1234
-  isOpen: 0
+  isOpen: 1
   closedState: {fileID: 337415190}
   openState: {fileID: 1929070581}
   detailImage: {fileID: 0}
