@@ -29,6 +29,19 @@ public class player : MonoBehaviour
 
     }
 
+
+    //人物初始状态朝前看--新加
+    private void Start()
+    {
+        // 设置初始朝向（向前/向下）
+        foreach (var anim in animators)
+        {
+            anim.SetFloat("InputX", 0);
+            anim.SetFloat("InputY", -1);  // -1 = 向前（朝下）
+        }
+    }
+
+
     private void OnEnable()
     {
         EventHandler.BeforeSceneUnloadEvent += OnBeforeSceneUnloadEvent;
