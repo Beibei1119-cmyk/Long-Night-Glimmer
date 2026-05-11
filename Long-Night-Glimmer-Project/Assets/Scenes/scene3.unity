@@ -3560,7 +3560,7 @@ MonoBehaviour:
   isLocked: 1
   lockHint: "\u8FD9\u4E2A\u9501\u7740\u5462"
   requiredKey: --
-  correctPassword: 1111
+  correctPassword: 0649
   isOpen: 0
   closedState: {fileID: 2036030416}
   openState: {fileID: 436907302}
@@ -4236,7 +4236,7 @@ MonoBehaviour:
   hasGem2: 0
   hasstone: 0
   hasBoard: 0
-  hintMessage: "\u8FD9\u662F\u4E00\u4E2A\u7269\u4F53"
+  hintMessage: "\u95E8\u9501\u7740\uFF0C\u9700\u8981\u91CD\u8981\u7269\u4F53..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
@@ -4398,6 +4398,7 @@ GameObject:
   - component: {fileID: 1752141847}
   - component: {fileID: 1752141846}
   - component: {fileID: 1752141848}
+  - component: {fileID: 1752141849}
   m_Layer: 0
   m_Name: "\u526A\u5200"
   m_TagString: Untagged
@@ -4517,6 +4518,45 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.386717, y: 0.59563065}
   m_EdgeRadius: 0
+--- !u!114 &1752141849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752141845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
+  disableClickAfterUnlock: 0
+  objectType: 4
+  isLocked: 1
+  lockHint: "\u8FD9\u4E2A\u9501\u7740\u5462"
+  requiredKey: "\u94DC\u94A5\u5319"
+  correctPassword: 1234
+  isOpen: 0
+  closedState: {fileID: 0}
+  openState: {fileID: 0}
+  detailImage: {fileID: 0}
+  detailDescription: "\u7269\u54C1\u63CF\u8FF0"
+  detailHint: "\u67E5\u770B\u7269\u54C1"
+  insideBackgroundImage: {fileID: 0}
+  hasKey: 0
+  hasClip: 0
+  hasKey2: 0
+  hasGem1: 0
+  hasGem2: 0
+  hasstone: 0
+  hasBoard: 0
+  hintMessage: "\u5730\u4E0A\u96F6\u4E71\u6446\u653E\u8FD9\u526A\u5200\u548C\u9488\u7BA1..."
+  openSound: {fileID: 0}
+  clickableItem: {fileID: 0}
+  clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
+  clickableItemDetailDescription: 
 --- !u!1 &1810094643
 GameObject:
   m_ObjectHideFlags: 0

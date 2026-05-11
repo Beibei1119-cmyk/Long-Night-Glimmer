@@ -977,7 +977,7 @@ MonoBehaviour:
   hasGem2: 0
   hasstone: 0
   hasBoard: 0
-  hintMessage: "\u8FD9\u662F\u4E00\u4E2A\u7269\u4F53"
+  hintMessage: "\u5E26\u6709\u7F8E\u597D\u795D\u613F\u7684\u76F8\u518C..."
   openSound: {fileID: 0}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}

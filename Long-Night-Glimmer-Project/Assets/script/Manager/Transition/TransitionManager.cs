@@ -13,6 +13,12 @@ namespace Transition
     {
         public string startSceneName = string.Empty;
 
+
+        [Header("场景过渡文字")]
+        public List<SceneTransitionText> sceneTransitionTexts = new List<SceneTransitionText>();
+
+
+
         private void OnEnable()
         {
             // 监听事件
@@ -47,16 +53,20 @@ namespace Transition
         private IEnumerator Transition(string sceneName, Vector3 targetPosition)
         {
 
+            // 改成
+            string displayText = GetTransitionText(sceneName);
+
+            // 淡出并显示文字
+            yield return StartCoroutine(FadeManager.Instance.FadeOutWithTextCoroutine(displayText));
+
             EventHandler.CallBeforeSceneUnloadEvent();
-
-            yield return SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());// 卸载当前场景
-
-            yield return LoadSceneSetActive(sceneName);// 加载场景（设置激活）
-            EventHandler.CallMoveToPosition(targetPosition);//场景加载好了把人物挪过去
-
+            yield return SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+            yield return LoadSceneSetActive(sceneName);
+            EventHandler.CallMoveToPosition(targetPosition);
             EventHandler.CallAfterSceneLoadEvent();
 
-
+            // 隐藏文字并淡入
+            yield return StartCoroutine(FadeManager.Instance.FadeInWithTextCoroutine());
 
 
         }
@@ -83,6 +93,22 @@ namespace Transition
         }
 
 
+        private string GetTransitionText(string sceneName)
+        {
+            foreach (var item in sceneTransitionTexts)
+            {
+                if (item.sceneName == sceneName)
+                    return item.transitionText;
+            }
+            return $"进入 {sceneName}";
+        }
+
+        [System.Serializable]
+        public class SceneTransitionText
+        {
+            public string sceneName;
+            public string transitionText;
+        }
 
     }
 
