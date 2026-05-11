@@ -615,7 +615,7 @@ MonoBehaviour:
   lockHint: "\u95E8..\u4F3C\u4E4E\u9501\u7740\uFF0C\u9700\u8981\u94A5\u5319"
   requiredKey: "\u94DC\u94A5\u5319"
   correctPassword: 1234
-  isOpen: 1
+  isOpen: 0
   closedState: {fileID: 1040797637}
   openState: {fileID: 1377807859}
   detailImage: {fileID: 0}

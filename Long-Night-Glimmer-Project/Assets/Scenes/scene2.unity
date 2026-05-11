@@ -1600,6 +1600,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 592663067}
+  - component: {fileID: 592663068}
+  - component: {fileID: 592663069}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -1616,13 +1618,101 @@ Transform:
   m_GameObject: {fileID: 592663066}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.638296, y: 2.09, z: 0.036919855}
+  m_LocalPosition: {x: 13.1, y: 2.09, z: 0.036919855}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 732382658}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &592663068
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592663066}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -16.814068, y: -4.5369215}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.9534769, y: 4.729048}
+  m_EdgeRadius: 0
+--- !u!114 &592663069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592663066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6858eed78e4e0654784acb9ded90f7e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - speakerName: "\u5973\u5B69"
+    content: "\u4F60\u2026\u2026\u662F\u8C01\uFF1F"
+    isLeft: 1
+  - speakerName: "\u672A\u77E5"
+    content: "\u4F60\u4E0D\u9700\u8981\u77E5\u9053\u6211\u662F\u8C01\u3002\u4F60\u53EA\u8981\u5F80\u524D\u8D70\u5C31\u597D\u4E86\u3002"
+    isLeft: 0
+  - speakerName: "\u5973\u5B69"
+    content: "\u53EF\u662F...\u6211\u4E0D\u77E5\u9053\u600E\u4E48\u8D70\u51FA\u53BB..."
+    isLeft: 1
+  - speakerName: "\u672A\u77E5"
+    content: "\u522B\u6015\u3002\u770B\u770B\u4F60\u811A\u8FB9\uFF0C\u90A3\u5806\u788E\u77F3\u5934"
+    isLeft: 0
+  - speakerName: "\u5973\u5B69"
+    content: "\u77F3\u5934\uFF1F"
+    isLeft: 1
+  - speakerName: "\u672A\u77E5"
+    content: " \u5E95\u4E0B\u538B\u7740\u4E00\u5F20\u7EB8\u6761.\u6709\u4EBA\u653E\u5728\u90A3\u91CC\u7684\uFF0C\u6015\u4F60\u8D70\u4E0D\u51FA\u53BB."
+    isLeft: 0
+  - speakerName: "\u5973\u5B69"
+    content: "\u8C01\u653E\u7684\uFF1F"
+    isLeft: 1
+  - speakerName: "\u672A\u77E5"
+    content: " \u4E00\u4E2A\u4E0D\u5E0C\u671B\u4F60\u56F0\u5728\u8FD9\u91CC\u7684\u4EBA."
+    isLeft: 0
+  - speakerName: "\u5973\u5B69"
+    content: "\u4F60\u4F1A\u4E00\u76F4\u5728\u8FD9\u91CC\u7B49\u6211\u5417\uFF1F"
+    isLeft: 1
+  - speakerName: "\u672A\u77E5"
+    content: " \u55EF\u3002\u6211\u5C31\u5728\u8FD9\u513F\u3002\u53BB\u5427\u3002"
+    isLeft: 0
 --- !u!1 &593190915
 GameObject:
   m_ObjectHideFlags: 0
@@ -4660,7 +4750,7 @@ MonoBehaviour:
   lockHint: "\u8FD9\u4E2A\u95E8\u9501\u7740\u5462..."
   requiredKey: "\u94F6\u94A5\u5319"
   correctPassword: --
-  isOpen: 1
+  isOpen: 0
   closedState: {fileID: 163322236}
   openState: {fileID: 1317929976}
   detailImage: {fileID: 0}

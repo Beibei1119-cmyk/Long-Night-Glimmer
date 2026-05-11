@@ -3383,7 +3383,7 @@ MonoBehaviour:
   lockHint: "\u8FD9\u4E2A\u9501\u7740\u5462"
   requiredKey: "\u94DC\u94A5\u5319"
   correctPassword: 1234
-  isOpen: 1
+  isOpen: 0
   closedState: {fileID: 337415190}
   openState: {fileID: 1929070581}
   detailImage: {fileID: 0}
