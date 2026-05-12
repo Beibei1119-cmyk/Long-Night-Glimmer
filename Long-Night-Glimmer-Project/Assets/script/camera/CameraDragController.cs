@@ -46,6 +46,8 @@ public class CameraDragController : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log($"transposer offset: {transposer?.m_TrackedObjectOffset}");
+
         player playerScript = player.GetComponent<player>();
         bool isMoving = playerScript != null && playerScript.IsMoving();
 
@@ -71,39 +73,73 @@ public class CameraDragController : MonoBehaviour
         }
     }
 
+    // 新增：重置拖拽状态===================
+    public void ResetDragState()
+    {
+        isDragging = false;
+        targetCameraOffset = Vector3.zero;
+        currentOffset = Vector3.zero;
+
+        if (transposer != null)
+        {
+            transposer.m_TrackedObjectOffset = Vector3.zero;
+
+            // 强制重新设置跟随目标
+            virtualCamera.Follow = player;
+
+            // 重新激活相机组件
+            virtualCamera.enabled = false;
+            virtualCamera.enabled = true;
+        }
+
+        Debug.Log("CameraDragController 状态已重置并强制刷新");
+    }
+
+    //==================================
+
     void HandleDrag()
     {
+        bool mouseDown = Input.GetMouseButtonDown(1);
+        bool mouseHold = Input.GetMouseButton(1);
+        bool mouseUp = Input.GetMouseButtonUp(1);
+
+        Debug.Log($"HandleDrag: mouseDown={mouseDown}, mouseHold={mouseHold}, mouseUp={mouseUp}, isDragging={isDragging}");
+
         // 鼠标右键按下
-        if (Input.GetMouseButtonDown(1))
+        if (mouseDown)
         {
+            Debug.Log("=== 鼠标右键按下，设置 isDragging = true ===");
             dragOrigin = Input.mousePosition;
             isDragging = true;
         }
 
         // 鼠标右键拖拽中
-        if (Input.GetMouseButton(1) && isDragging)
+        if (mouseHold && isDragging)
         {
-            Vector3 delta = Input.mousePosition - dragOrigin;
+            Debug.Log("=== 进入拖拽计算 ===");
 
-            // 将屏幕坐标的移动转换为世界坐标偏移
+            Vector3 delta = Input.mousePosition - dragOrigin;
             float dragX = delta.x * dragSensitivity * 0.01f;
             float dragY = delta.y * dragSensitivity * 0.01f;
 
-            // 累加偏移
+          
+
             Vector3 newOffset = targetCameraOffset;
-            newOffset.x -= dragX;  // 注意方向：鼠标右移，相机左移
+            newOffset.x -= dragX;
             newOffset.y -= dragY;
 
-            // 应用边界限制
             newOffset = ClampOffsetWithBackground(newOffset);
+
+            
 
             targetCameraOffset = newOffset;
             dragOrigin = Input.mousePosition;
         }
 
         // 鼠标右键松开
-        if (Input.GetMouseButtonUp(1))
+        if (mouseUp)
         {
+            Debug.Log("=== 鼠标右键松开，设置 isDragging = false ===");
             isDragging = false;
         }
     }
