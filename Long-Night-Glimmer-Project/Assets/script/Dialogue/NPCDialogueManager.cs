@@ -3,9 +3,10 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.Playables;
 
-public class DialogueManager : MonoBehaviour
+public class NPCDialogueManager : MonoBehaviour
 {
-    public static DialogueManager Instance;
+    public static NPCDialogueManager Instance;
+
 
     [Header("UI组件")]
     public GameObject dialoguePanel;
@@ -131,17 +132,6 @@ public class DialogueManager : MonoBehaviour
         if (mainCanvas != null)
             mainCanvas.SetActive(true);
 
-
-        // 恢复 Timeline 播放
-        var director = FindObjectOfType<PlayableDirector>();
-        if (director != null) {
-            director.playableGraph.GetRootPlayable(0).SetSpeed(1);
-            Debug.Log("Timeline 已恢复");
-        }
-        else
-        {
-            Debug.Log("没找到 PlayableDirector");
-        }
 
     }
 

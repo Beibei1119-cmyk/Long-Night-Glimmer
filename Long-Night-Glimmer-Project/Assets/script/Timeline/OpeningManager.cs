@@ -153,6 +153,20 @@ public class OpeningManager : MonoBehaviour
 
         Debug.Log("=== 跳过开场动画 ===");
 
+
+        // 先关对话
+        if (DialogueManager.Instance != null && DialogueManager.Instance.IsActive())
+        {
+            DialogueManager.Instance.CloseDialogue();
+        }
+
+
+        if (openingTimeline != null)
+        {
+            openingTimeline.Stop();
+            openingTimeline.time = openingTimeline.duration;
+        }
+
         if (openingTimeline != null)
         {
             openingTimeline.Stop();
@@ -168,6 +182,9 @@ public class OpeningManager : MonoBehaviour
          Debug.Log($"Timeline 结束事件触发，time={director.time}, state={director.state}");
 
         openingTimeline.stopped -= OnTimelineFinished;
+
+
+
         Debug.Log("Timeline 播放完成");
         EndOpening();
     }
@@ -175,6 +192,12 @@ public class OpeningManager : MonoBehaviour
     private void EndOpening()
     {
         Debug.Log("=== 开场动画结束 ===");
+        // 保险：强制关闭对话面板
+        if (DialogueManager.Instance != null && DialogueManager.Instance.IsActive())
+        {
+            DialogueManager.Instance.CloseDialogue();
+        }
+
 
         // ========== 恢复相机到指定大小 ==========
         if (normalCamera != null)

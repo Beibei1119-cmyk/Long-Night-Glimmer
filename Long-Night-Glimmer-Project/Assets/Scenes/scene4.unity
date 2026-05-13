@@ -1607,7 +1607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comboLockPanelIndex: 1
-  disableClickAfterUnlock: 0
+  disableClickAfterUnlock: 1
   objectType: 3
   isLocked: 1
   lockHint: "\u8FD9\u4E2A\u9501\u7740\u5462"
@@ -2120,7 +2120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comboLockPanelIndex: 1
-  disableClickAfterUnlock: 0
+  disableClickAfterUnlock: 1
   objectType: 3
   isLocked: 1
   lockHint: "\u8FD9\u4E2A\u9501\u7740\u5462"
