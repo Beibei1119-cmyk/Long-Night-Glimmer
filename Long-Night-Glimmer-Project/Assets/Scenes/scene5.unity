@@ -978,7 +978,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u5E26\u6709\u7F8E\u597D\u795D\u613F\u7684\u76F8\u518C..."
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -1148,7 +1148,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u88C5\u6EE1\u836F\u7684\u540A\u74F6..."
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 968e5f16fedc61e4f94386e499876ebf, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -1675,7 +1675,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u6709\u4E00\u675F\u9C9C\u82B1\uFF0C\u597D\u7F8E"
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -1845,7 +1845,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u5988\u5988\u4F3C\u4E4E\uFF0C\u770B\u4E0D\u5230\u6211\uFF1F..."
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -2010,7 +2010,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u8FD9\u662F\u4E00\u5F20\u5199\u7740\u7F8E\u597D\u795D\u613F\u7684\u8D34\u7EB8"
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: a0a7d0e0e6884fd40afad1abdd67b40f, type: 3}
   clickableItem: {fileID: 1797804600}
   clickableItemDetailImage: {fileID: 21300000, guid: fe7c776a8490ec94b8c8e14c61537aad, type: 3}
   pickupItem: {fileID: 0}
@@ -2135,7 +2135,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u5E8A\u4E0A\u7684\u5973\u5B69\u770B\u8D77\u6765\u5F88\u865A\u5F31\uFF0C\u8FD9\u4F3C\u4E4E\u662F\u6211..."
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -2252,7 +2252,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u8FD9\u662F\u4E00\u4E2A\u7269\u4F53"
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 47d767b362aa87b4180306599687f1eb, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -3051,7 +3051,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u8FD9\u662F\u4E00\u4E2A\u7269\u4F53"
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 562b2aa3688a5ae43b4996d617001e32, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}

@@ -455,7 +455,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u5730\u4E0A\u6709\u4E00\u4E9B\u788E\u77F3..."
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 2e42fbe6af97e9e40a37b240c008ca8a, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -938,7 +938,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u8FD9\u662F\u4E00\u4E2A\u7269\u4F53"
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: a0a7d0e0e6884fd40afad1abdd67b40f, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -1541,7 +1541,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u8FD9\u91CC\u6709\u4E00\u6761\u7C97\u91CD\u7684\u94C1\u94FE..\u6709\u79CD\u597D\u538B\u6291\u7684\u611F\u89C9..."
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 73216929b529fa64eb014e6dd4bbcdbc, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -1578,7 +1578,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.02585888, y: 1.57025}
+  m_Offset: {x: -0.056991577, y: 0.74523234}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1589,7 +1589,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7077084, y: 5.8095007}
+  m_Size: {x: 1.8945045, y: 7.8019967}
   m_EdgeRadius: 0
 --- !u!1 &592663066
 GameObject:
@@ -1833,7 +1833,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u6D1E\u53E3\u91CC\u6709\u4E00\u53EA...\u773C\u775B\uFF01\uFF01\uFF01\uFF01\uFF01"
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: d030af7efde02f7468ec7774075caec9, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -1870,7 +1870,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.4486661, y: -2.0100176}
+  m_Offset: {x: -0.4532541, y: -1.9813367}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1881,7 +1881,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6380618, y: 1.9983172}
+  m_Size: {x: 1.9674067, y: 2.2890103}
   m_EdgeRadius: 0
 --- !u!1 &616325087
 GameObject:
@@ -2003,7 +2003,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u5929\u82B1\u677F\u4E5F\u88AB\u9ED1\u8272\u6EB6\u6DB2\u8150\u8680\u4E86..."
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 9985c5fc070423644872410d287417df, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -2572,7 +2572,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u5730\u4E0A\u6709\u4E00\u4E9B\u788E\u77F3..."
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 2e42fbe6af97e9e40a37b240c008ca8a, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -2681,7 +2681,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u8FD9\u4E2A\u7BB1\u5B50\u4F3C\u4E4E\u9700\u8981\u653E\u5165\u76F8\u5E94\u788E\u7247\u89E3\u9501...."
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 47d767b362aa87b4180306599687f1eb, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -2932,7 +2932,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u5730\u4E0A\u6709\u4E00\u4E9B\u788E\u77F3..."
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 2e42fbe6af97e9e40a37b240c008ca8a, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -3057,7 +3057,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u9633\u5149\u4ECE\u6D1E\u53E3\u900F\u51FA\uFF0C\u597D\u6E29\u6696..."
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: d030af7efde02f7468ec7774075caec9, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -3094,7 +3094,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08376098, y: 0.19544244}
+  m_Offset: {x: -0.05839324, y: 0.11299837}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3105,7 +3105,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5547767, y: 1.4114141}
+  m_Size: {x: 1.8084502, y: 1.8553431}
   m_EdgeRadius: 0
 --- !u!1 &1018403704
 GameObject:
@@ -4192,7 +4192,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.11258221, y: 0.25518465}
+  m_Offset: {x: -0.11258221, y: 0.1934607}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4203,7 +4203,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6358318, y: 6.3699512}
+  m_Size: {x: 1.6358318, y: 6.493399}
   m_EdgeRadius: 0
 --- !u!114 &1317929980
 MonoBehaviour:
@@ -4337,7 +4337,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.12272686, y: 0.046231747}
+  m_Offset: {x: 0.15229136, y: -0.015642881}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4348,7 +4348,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4263872, y: 1.3862796}
+  m_Size: {x: 1.6490647, y: 1.7297816}
   m_EdgeRadius: 0
 --- !u!114 &1320579363
 MonoBehaviour:
@@ -4384,7 +4384,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u90A3\u2026\u2026\u90A3\u662F\u4EC0\u4E48\u2026\u2026\u597D\u53EF\u6015\u2026\u2026"
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: d030af7efde02f7468ec7774075caec9, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -4456,7 +4456,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u8FD9\u662F\u4E00\u4E2A\u7269\u4F53"
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: a0a7d0e0e6884fd40afad1abdd67b40f, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -4765,7 +4765,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: --
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: a74c450731484754abe6602084554c0d, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -4802,7 +4802,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.07869148, y: -0.17523241}
+  m_Offset: {x: -0.091962814, y: 0.030695677}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4813,7 +4813,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3799477, y: 7.036948}
+  m_Size: {x: 1.4064903, y: 6.2916827}
   m_EdgeRadius: 0
 --- !u!1 &1534657005
 GameObject:
@@ -4980,7 +4980,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u4E00\u4E9B\u788E\u77F3..."
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 2e42fbe6af97e9e40a37b240c008ca8a, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -5052,7 +5052,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: --
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 47d767b362aa87b4180306599687f1eb, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -5267,7 +5267,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u5730\u4E0A\u6709\u4E00\u4E9B\u788E\u77F3..."
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 2e42fbe6af97e9e40a37b240c008ca8a, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -5706,7 +5706,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.7066004, y: -0.33856487}
+  m_Offset: {x: -1.7066004, y: -0.3490417}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5717,7 +5717,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.9243016, y: 0.8827753}
+  m_Size: {x: 3.9243016, y: 1.0504069}
   m_EdgeRadius: 0
 --- !u!114 &1725136191
 MonoBehaviour:
@@ -5753,7 +5753,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u4E00\u4E9B\u788E\u77F3..."
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 2e42fbe6af97e9e40a37b240c008ca8a, type: 3}
   clickableItem: {fileID: 2074745238}
   clickableItemDetailImage: {fileID: 21300000, guid: 8f037abcc2012b644b4a5c9a3a763ac8, type: 3}
   pickupItem: {fileID: 0}
@@ -5825,7 +5825,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: --
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: a0a7d0e0e6884fd40afad1abdd67b40f, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -5942,7 +5942,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u4F3C\u4E4E\u6709\u4EC0\u4E48\u4E1C\u897F\u3002\u5934\u597D\u6655\u2026\u2026\u597D\u96BE\u53D7\u2026\u2026\u6211\u4E0D\u60F3\u770B\u4E86..."
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 47d767b362aa87b4180306599687f1eb, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -5979,7 +5979,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 12.461998, y: 0.6378547}
+  m_Offset: {x: 12.521207, y: 0.5469222}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5990,7 +5990,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.0410805, y: 3.3643153}
+  m_Size: {x: 3.1594982, y: 3.5461802}
   m_EdgeRadius: 0
 --- !u!1 &1839884236
 GameObject:
@@ -6359,7 +6359,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u9ED1\u8272\u6EB6\u6DB2\u5DF2\u8513\u5EF6\u81F3\u5899\u9762..."
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 9985c5fc070423644872410d287417df, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -6484,7 +6484,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u5730\u4E0A..\u662F\u6050\u6016\u7684\u9ED1\u8272\u6EB6\u6DB2"
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 9985c5fc070423644872410d287417df, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}

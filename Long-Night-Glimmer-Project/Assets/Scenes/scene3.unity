@@ -538,7 +538,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u8FD9\u662F\u4E00\u4E2A\u7269\u4F53"
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: e020adb28a9dc7046af4d93b5258bcfb, type: 3}
   clickableItem: {fileID: 943664386}
   clickableItemDetailImage: {fileID: 21300000, guid: 94ae7f7df83a5654185045600a346bd7, type: 3}
   pickupItem: {fileID: 0}
@@ -1199,7 +1199,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u4E00\u628A\u5E26\u8840\u7684\u624B\u672F\u526A\u5200\uFF0C\u6211\u4E0D\u6562\u78B0\u4ED6.."
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 0295bae1a07926544a6515b9353078e5, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -1318,7 +1318,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u8FD9\u662F\u4E00\u4E2A\u7269\u4F53"
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 09dc71339b46aa54ebe23ce4ad150b65, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -1479,6 +1479,7 @@ GameObject:
   - component: {fileID: 570253287}
   - component: {fileID: 570253286}
   - component: {fileID: 570253288}
+  - component: {fileID: 570253289}
   m_Layer: 0
   m_Name: "\u51F3\u5B50"
   m_TagString: Untagged
@@ -1598,6 +1599,45 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.6956463, y: 1.4894407}
   m_EdgeRadius: 0
+--- !u!114 &570253289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570253285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
+  disableClickAfterUnlock: 0
+  objectType: 4
+  isLocked: 1
+  lockHint: "\u8FD9\u4E2A\u9501\u7740\u5462"
+  requiredKey: "\u94DC\u94A5\u5319"
+  correctPassword: 1234
+  isOpen: 0
+  closedState: {fileID: 0}
+  openState: {fileID: 0}
+  detailImage: {fileID: 0}
+  detailDescription: "\u7269\u54C1\u63CF\u8FF0"
+  detailHint: "\u8FD9\u91CC\u6709\u4E00\u5F20\u51F3\u5B50..."
+  insideBackgroundImage: {fileID: 0}
+  hasKey: 0
+  hasClip: 0
+  hasKey2: 0
+  hasGem1: 0
+  hasGem2: 0
+  hasstone: 0
+  hasBoard: 0
+  hintMessage: "\u8FD9\u662F\u4E00\u4E2A\u7269\u4F53"
+  openSound: {fileID: 0}
+  clickableItem: {fileID: 0}
+  clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
+  clickableItemDetailDescription: 
 --- !u!1 &609413563
 GameObject:
   m_ObjectHideFlags: 0
@@ -1850,7 +1890,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 1
   hintMessage: "\u8FD9\u662F\u4E00\u4E2A\u7269\u4F53"
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 47d767b362aa87b4180306599687f1eb, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -2109,6 +2149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 842311270}
   - component: {fileID: 842311269}
+  - component: {fileID: 842311271}
   m_Layer: 0
   m_Name: "\u9876\u706F"
   m_TagString: Untagged
@@ -2183,6 +2224,45 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &842311271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842311268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
+  disableClickAfterUnlock: 0
+  objectType: 4
+  isLocked: 1
+  lockHint: "\u8FD9\u4E2A\u9501\u7740\u5462"
+  requiredKey: "\u94DC\u94A5\u5319"
+  correctPassword: 1234
+  isOpen: 0
+  closedState: {fileID: 0}
+  openState: {fileID: 0}
+  detailImage: {fileID: 0}
+  detailDescription: "\u7269\u54C1\u63CF\u8FF0"
+  detailHint: "\u67E5\u770B\u7269\u54C1"
+  insideBackgroundImage: {fileID: 0}
+  hasKey: 0
+  hasClip: 0
+  hasKey2: 0
+  hasGem1: 0
+  hasGem2: 0
+  hasstone: 0
+  hasBoard: 0
+  hintMessage: "\u4E00\u76CF\u706F"
+  openSound: {fileID: 8300000, guid: efac1b78baed70e42b0ca6407811cf29, type: 3}
+  clickableItem: {fileID: 0}
+  clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
+  clickableItemDetailDescription: 
 --- !u!1 &858306295
 GameObject:
   m_ObjectHideFlags: 0
@@ -2514,6 +2594,7 @@ GameObject:
   m_Component:
   - component: {fileID: 927777253}
   - component: {fileID: 927777252}
+  - component: {fileID: 927777254}
   m_Layer: 0
   m_Name: "\u6A71\u67DC\u7269\u4F53"
   m_TagString: Untagged
@@ -2588,6 +2669,45 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &927777254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927777251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
+  disableClickAfterUnlock: 0
+  objectType: 4
+  isLocked: 1
+  lockHint: "\u8FD9\u4E2A\u9501\u7740\u5462"
+  requiredKey: "\u94DC\u94A5\u5319"
+  correctPassword: 1234
+  isOpen: 0
+  closedState: {fileID: 0}
+  openState: {fileID: 0}
+  detailImage: {fileID: 0}
+  detailDescription: "\u7269\u54C1\u63CF\u8FF0"
+  detailHint: "\u67E5\u770B\u7269\u54C1"
+  insideBackgroundImage: {fileID: 0}
+  hasKey: 0
+  hasClip: 0
+  hasKey2: 0
+  hasGem1: 0
+  hasGem2: 0
+  hasstone: 0
+  hasBoard: 0
+  hintMessage: "\u6A71\u67DC\u4E0A\u6709\u4E00\u4E9B\u7269\u4F53..."
+  openSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
+  clickableItem: {fileID: 0}
+  clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
+  clickableItemDetailDescription: 
 --- !u!1 &943664386
 GameObject:
   m_ObjectHideFlags: 0
@@ -3227,7 +3347,7 @@ MonoBehaviour:
   hasstone: 1
   hasBoard: 0
   hintMessage: "\u5899\u4E0A\u6709\u4E00\u4E9B\u523B\u75D5..."
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -3645,7 +3765,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u8FD9\u662F\u4E00\u4E2A\u7269\u4F53"
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 47d767b362aa87b4180306599687f1eb, type: 3}
   clickableItem: {fileID: 1466410300}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 1466410300}
@@ -4306,7 +4426,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u95E8\u9501\u7740\uFF0C\u9700\u8981\u91CD\u8981\u7269\u4F53..."
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: a74c450731484754abe6602084554c0d, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -4621,7 +4741,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u5730\u4E0A\u96F6\u4E71\u6446\u653E\u8FD9\u526A\u5200\u548C\u9488\u7BA1..."
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 0295bae1a07926544a6515b9353078e5, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}
@@ -4979,6 +5099,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2102605660}
   - component: {fileID: 2102605659}
+  - component: {fileID: 2102605661}
   m_Layer: 0
   m_Name: "\u5730\u6BEF"
   m_TagString: Untagged
@@ -5053,6 +5174,45 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2102605661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102605658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8806e57ff96114983b430fc2945743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comboLockPanelIndex: 1
+  disableClickAfterUnlock: 0
+  objectType: 4
+  isLocked: 1
+  lockHint: "\u8FD9\u4E2A\u9501\u7740\u5462"
+  requiredKey: "\u94DC\u94A5\u5319"
+  correctPassword: 1234
+  isOpen: 0
+  closedState: {fileID: 0}
+  openState: {fileID: 0}
+  detailImage: {fileID: 0}
+  detailDescription: "\u7269\u54C1\u63CF\u8FF0"
+  detailHint: "\u67E5\u770B\u7269\u54C1"
+  insideBackgroundImage: {fileID: 0}
+  hasKey: 0
+  hasClip: 0
+  hasKey2: 0
+  hasGem1: 0
+  hasGem2: 0
+  hasstone: 0
+  hasBoard: 0
+  hintMessage: "\u4E00\u5F20\u810F\u4E86\u7684\u5730\u6BEF..."
+  openSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
+  clickableItem: {fileID: 0}
+  clickableItemDetailImage: {fileID: 0}
+  pickupItem: {fileID: 0}
+  clickableItemDetailDescription: 
 --- !u!1 &2105944620
 GameObject:
   m_ObjectHideFlags: 0
@@ -5208,7 +5368,7 @@ MonoBehaviour:
   hasstone: 0
   hasBoard: 0
   hintMessage: "\u662F\u6A58\u5B50\u5473\u7CD6\u679C\uFF0C\u6211\u6700\u7231\u6A58\u5B50\u5473\u7684\u7CD6\u679C\u4E86"
-  openSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
   clickableItem: {fileID: 0}
   clickableItemDetailImage: {fileID: 0}
   pickupItem: {fileID: 0}

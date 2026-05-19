@@ -191,13 +191,20 @@ public class OpeningManager : MonoBehaviour
 
     private void EndOpening()
     {
+        //Debug.Log("=== 开场动画结束 ===");
+        //// 保险：强制关闭对话面板
+        //if (DialogueManager.Instance != null && DialogueManager.Instance.IsActive())
+        //{
+        //    DialogueManager.Instance.CloseDialogue();
+        //}
         Debug.Log("=== 开场动画结束 ===");
-        // 保险：强制关闭对话面板
-        if (DialogueManager.Instance != null && DialogueManager.Instance.IsActive())
-        {
-            DialogueManager.Instance.CloseDialogue();
-        }
 
+        // 检查物体是否激活
+        if (!gameObject.activeInHierarchy)
+        {
+            Debug.LogWarning("OpeningManager 物体未激活，跳过协程");
+            return;
+        }
 
         // ========== 恢复相机到指定大小 ==========
         if (normalCamera != null)

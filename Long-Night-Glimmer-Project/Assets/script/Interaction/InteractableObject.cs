@@ -1,5 +1,8 @@
 using UnityEngine;
 
+
+
+
 public class InteractableObject : MonoBehaviour
 {
 
@@ -79,11 +82,37 @@ public class InteractableObject : MonoBehaviour
     public string clickableItemDetailDescription;
 
 
-   
+    //==========================
+
+    // 在类的开头，所有变量声明的地方，添加这一行（大约第80行附近）
+    private AudioSource audioSource;
+
+    //===========================
+
+    // 统一播放声音的方法
+    private void PlaySound()
+    {
+        if (openSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(openSound);
+        }
+    }
+
 
     private void Start()
     {
         UpdateVisual();
+
+        // 添加这两行==========================
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null && openSound != null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+            audioSource.spatialBlend = 0.5f; // 混合2D和3D音效
+        }
+        //=============================================
+
     }
 
     private void OnMouseDown()
@@ -93,8 +122,6 @@ public class InteractableObject : MonoBehaviour
         {
             return;
         }
-
-
 
         //单独只给门设置的：
         // 如果解锁后禁用点击，且已经打开，则不响应
@@ -145,6 +172,7 @@ public class InteractableObject : MonoBehaviour
             {
                 isOpen = true;
                 UpdateVisual();
+                PlaySound();  // ← 改成这样
 
                 if (pickupItem != null)
                     pickupItem.SetActive(true);
@@ -160,6 +188,7 @@ public class InteractableObject : MonoBehaviour
         if (objectType == ObjectType.OnlyHint)
         {
             UIManager.Instance.ShowHint(hintMessage);
+            PlaySound();  // ← 改成这样
             return;
         }
 
@@ -168,6 +197,7 @@ public class InteractableObject : MonoBehaviour
         {
             UIManager.Instance.ShowHint(detailHint);
             UIManager.Instance.ShowDetail(detailImage, detailDescription);
+            PlaySound();  // ← 改成这样
             return;
         }
 
@@ -179,6 +209,9 @@ public class InteractableObject : MonoBehaviour
                 // 第一次点击：打开物体
                 isOpen = true;
                 UpdateVisual();
+
+                PlaySound();  // ← 改成这样
+
                 UIManager.Instance.ShowHint(detailHint);
                 SaveState();
                 return;
@@ -200,6 +233,8 @@ public class InteractableObject : MonoBehaviour
                 // 第一次点击：打开物体
                 isOpen = true;
                 UpdateVisual();
+                PlaySound();  // ← 改成这样
+
                 UIManager.Instance.ShowHint($"打开了{gameObject.name}");
                 UIManager.Instance.ShowHint(hintMessage);
                 SaveState();
@@ -222,6 +257,8 @@ public class InteractableObject : MonoBehaviour
                 // 第一次点击：打开物体
                 isOpen = true;
                 UpdateVisual();
+                PlaySound();  // ← 改成这样
+
 
                 // 显示可点击物品
                 if (clickableItem != null)
@@ -240,15 +277,11 @@ public class InteractableObject : MonoBehaviour
         // ========== 类型：组合锁 ==========
         if (objectType == ObjectType.ComboLock)
         {
-            //if (!isOpen)
-            //{
-            //    UIManager.Instance.ShowComboLockPanel(this);
-            //    UIManager.Instance.ShowHint(hintMessage);
-            //    return;
-            //}
-
+        
             if (!isOpen)
             {
+                PlaySound();  // ← 改成这样
+
                 // 根据箱子选择哪个面板
                 if (comboLockPanelIndex == 1)
                     UIManager.Instance.ShowComboLockPanel(this);
@@ -281,6 +314,7 @@ public class InteractableObject : MonoBehaviour
             }
             else
             {
+                PlaySound();  // ← 改成这样
                 // 已打开：显示内部面板（里面有可拾取物品）
                 UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2, hasstone , hasBoard);
                 return;
@@ -298,6 +332,8 @@ public class InteractableObject : MonoBehaviour
             }
             else
             {
+                PlaySound();  // ← 改成这样
+
                 // 已打开：显示内部面板（里面有可拾取物品）
                 UIManager.Instance.insidePanel.Show(insideBackgroundImage, hasKey, hasClip, hasKey2, hasGem1, hasGem2, hasstone, hasBoard);
                 return;
@@ -311,7 +347,10 @@ public class InteractableObject : MonoBehaviour
 
         if (openSound != null)
         {
-            AudioSource.PlayClipAtPoint(openSound, transform.position);
+            //===================
+            //AudioSource.PlayClipAtPoint(openSound, transform.position);
+            audioSource.PlayOneShot(openSound);
+            //===================
         }
 
         Debug.Log($"{gameObject.name} 已 {(isOpen ? "打开" : "关闭")}");
@@ -356,10 +395,7 @@ public class InteractableObject : MonoBehaviour
         UIManager.Instance.ShowHint($"{gameObject.name} 已解锁并打开");
         SaveState();
 
-        if (openSound != null)
-        {
-            AudioSource.PlayClipAtPoint(openSound, transform.position);
-        }
+        PlaySound();  // ← 改成这样
     }
 
     public bool TryUnlockWithKey(string keyName)

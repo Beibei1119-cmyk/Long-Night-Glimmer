@@ -14007,23 +14007,23 @@ MonoBehaviour:
   sceneMusicList:
   - sceneName: scene1
     musicClip: {fileID: 8300000, guid: a2b5c8b5783635745b3975a0dff572c8, type: 3}
-    volume: 1
+    volume: 0.5
     fadeTime: 0
   - sceneName: scene2
     musicClip: {fileID: 8300000, guid: f3304a658c4249e4885d56f38b9fd440, type: 3}
-    volume: 1
+    volume: 0.5
     fadeTime: 0
   - sceneName: scene3
     musicClip: {fileID: 8300000, guid: 98373acc15707ce478b920d8f076ff84, type: 3}
-    volume: 1
+    volume: 0.5
     fadeTime: 0
   - sceneName: scene4
     musicClip: {fileID: 8300000, guid: b17cc668ca4d5214787eeefb19f0bd68, type: 3}
-    volume: 1
+    volume: 0.5
     fadeTime: 0
   - sceneName: scene5
     musicClip: {fileID: 8300000, guid: b33f3112a1d246a43a002bb9909d3721, type: 3}
-    volume: 1
+    volume: 0.5
     fadeTime: 0
   defaultFadeTime: 1
 --- !u!4 &1870322004
