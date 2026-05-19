@@ -103,7 +103,7 @@ public class CameraDragController : MonoBehaviour
         bool mouseHold = Input.GetMouseButton(1);
         bool mouseUp = Input.GetMouseButtonUp(1);
 
-        Debug.Log($"HandleDrag: mouseDown={mouseDown}, mouseHold={mouseHold}, mouseUp={mouseUp}, isDragging={isDragging}");
+        //Debug.Log($"HandleDrag: mouseDown={mouseDown}, mouseHold={mouseHold}, mouseUp={mouseUp}, isDragging={isDragging}");
 
         // Êó±êÓÒ¼ü°´ÏÂ
         if (mouseDown)
