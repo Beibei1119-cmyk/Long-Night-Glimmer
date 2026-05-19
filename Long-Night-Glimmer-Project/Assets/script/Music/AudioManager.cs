@@ -128,4 +128,12 @@ public class AudioManager : MonoBehaviour
         audioSource.volume = targetVolume;
         currentFadeCoroutine = null;
     }
+
+    public void StopMusic()
+    {
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+    }
 }

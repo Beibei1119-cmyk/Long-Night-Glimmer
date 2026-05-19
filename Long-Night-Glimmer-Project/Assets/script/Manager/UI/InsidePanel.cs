@@ -17,13 +17,49 @@ public class InsidePanel : MonoBehaviour
     [Header("背景图")]
     public Image backgroundImage;  // 拖入 BackgroundImage
 
+    [Header("音效")]
+    public AudioClip openSound;     // 打开面板音效
+    public AudioClip closeSound;    // 关闭面板音效
+    public AudioClip itemPickupSound; // 拾取物品音效
 
+
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        // 在 Awake 中初始化，确保最早执行
+        InitAudioSource();
+    }
+    private void InitAudioSource()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+        audioSource.playOnAwake = false;
+        audioSource.volume = 0.8f;
+        audioSource.enabled = true;
+    }
     private void Start()
     {
         //有这个代码则不需要手动关闭那个ui，没有的话则需要手动关闭哈。
         //gameObject.SetActive(false);
         // 给物品添加点击拾取功能
-       
+        // 初始化 AudioSource
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+            audioSource.volume = 0.8f;
+        }
+
+        // ========== 强制启用 AudioSource ==========
+        audioSource.playOnAwake = false;
+        audioSource.volume = 0.8f;
+        audioSource.enabled = true;  // ← 关键：确保启用
+        // =========================================
+
 
         if (closeButton != null)
         {
@@ -31,6 +67,15 @@ public class InsidePanel : MonoBehaviour
         }
 
     }
+
+    //// 统一播放音效的方法
+    //private void PlaySound(AudioClip clip)
+    //{
+    //    if (clip != null && audioSource != null)
+    //    {
+    //        audioSource.PlayOneShot(clip);
+    //    }
+    //}
 
     private void AddPickupToItem(GameObject item, string itemName)
     {
@@ -55,18 +100,20 @@ public class InsidePanel : MonoBehaviour
         if (col != null)
             Destroy(col);
 
-        // 添加 UI 点击脚本
+        // 添加 UI 点击脚本，并设置拾取音效
         UIItemClick click = item.GetComponent<UIItemClick>();
         if (click == null)
             click = item.AddComponent<UIItemClick>();
         click.itemName = itemName;
-
+        click.pickupSound = itemPickupSound;  // 传递音效引用
     }
 
 
 
     public void Show(Sprite bgImage, bool showKey, bool showClip, bool showKey2, bool showGem1, bool showGem2, bool showstone, bool showBoard)
     {
+        //// 播放打开音效
+        //PlaySound(openSound);
         // 设置背景图
         if (backgroundImage != null && bgImage != null)
             backgroundImage.sprite = bgImage;
@@ -119,6 +166,8 @@ public class InsidePanel : MonoBehaviour
     }
     public void Hide()
     {
+        //// 播放关闭音效
+        //PlaySound(closeSound);
         gameObject.SetActive(false);
     }
 

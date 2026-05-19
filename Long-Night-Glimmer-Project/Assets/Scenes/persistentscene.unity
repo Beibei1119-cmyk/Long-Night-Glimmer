@@ -174,6 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: "\u94F6\u94A5\u5319"
+  pickupSound: {fileID: 0}
   pickupHint: "\u83B7\u5F97\u94F6\u94A5\u5319"
 --- !u!61 &13751686
 BoxCollider2D:
@@ -614,6 +615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: "\u836F\u54C1\u724C"
+  pickupSound: {fileID: 0}
   pickupHint: "\u62FE\u53D6\u5230\u836F\u54C1\u724C"
 --- !u!61 &101965492
 BoxCollider2D:
@@ -846,10 +848,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1752,6 +1754,7 @@ MonoBehaviour:
   filledSprite: {fileID: 21300000, guid: f29a8c3c8b2e3ba408bfe14fb63bf0df, type: 3}
   emptySprite: {fileID: 21300000, guid: 112c5ac6ec5fb21459787d65d5fec9a5, type: 3}
   slotId: 
+  placeSound: {fileID: 0}
 --- !u!61 &249044971
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2635,6 +2638,7 @@ MonoBehaviour:
   filledSprite: {fileID: 21300000, guid: 70fef342e8d3b6b4192674027ffe8b20, type: 3}
   emptySprite: {fileID: 21300000, guid: 199029aafe164c74b9ae8a31f1bd38e7, type: 3}
   slotId: 
+  placeSound: {fileID: 0}
 --- !u!61 &358239602
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2950,6 +2954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: "\u53D1\u5939"
+  pickupSound: {fileID: 0}
   pickupHint: "\u83B7\u5F97\u53D1\u5939"
 --- !u!1 &413678572
 GameObject:
@@ -3200,6 +3205,9 @@ MonoBehaviour:
   boardItem: {fileID: 101965489}
   closeButton: {fileID: 894474032}
   backgroundImage: {fileID: 1017833112}
+  openSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
+  closeSound: {fileID: 8300000, guid: af54ce3b0a1b5224db6a894c4523f74a, type: 3}
+  itemPickupSound: {fileID: 8300000, guid: 6dfb306ff61135c459f651dd54f74936, type: 3}
 --- !u!1 &454791207
 GameObject:
   m_ObjectHideFlags: 0
@@ -3434,6 +3442,7 @@ MonoBehaviour:
   filledSprite: {fileID: 21300000, guid: 9b7245dbeae63d94296f6aa63dfaeca1, type: 3}
   emptySprite: {fileID: 21300000, guid: 761d49ef7a8c40849a501cb7f2d1359e, type: 3}
   slotId: 
+  placeSound: {fileID: 0}
 --- !u!61 &475199213
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3651,6 +3660,7 @@ MonoBehaviour:
   filledSprite: {fileID: 21300000, guid: ee156e4a27004b542b592eeb722cdeba, type: 3}
   emptySprite: {fileID: 21300000, guid: 357633655116624468aa1712bf53006c, type: 3}
   slotId: 
+  placeSound: {fileID: 0}
 --- !u!61 &478483098
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3789,6 +3799,7 @@ MonoBehaviour:
   filledSprite: {fileID: 21300000, guid: a524f0740f14f4f4886b8e1dbf1b6496, type: 3}
   emptySprite: {fileID: 21300000, guid: 83e50b6fff03afb45b1d9cf386a3a313, type: 3}
   slotId: 
+  placeSound: {fileID: 0}
 --- !u!61 &487173097
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4228,7 +4239,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -5065,6 +5076,11 @@ MonoBehaviour:
   endingText: {fileID: 0}
   nextButton: {fileID: 0}
   endingMessages: []
+  openSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
+  slotFillSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
+  unlockSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
+  closeSound: {fileID: 8300000, guid: af54ce3b0a1b5224db6a894c4523f74a, type: 3}
+  buttonClickSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
 --- !u!114 &641194396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5170,6 +5186,11 @@ MonoBehaviour:
   endingText: {fileID: 0}
   nextButton: {fileID: 0}
   endingMessages: []
+  openSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
+  slotFillSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
+  unlockSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
+  closeSound: {fileID: 8300000, guid: af54ce3b0a1b5224db6a894c4523f74a, type: 3}
+  buttonClickSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
 --- !u!114 &643995225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5640,6 +5661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 758981761a5ff9c4b8b3e4468d9f8247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClickSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
   insidePanel: {fileID: 421499183}
   hintPanel: {fileID: 1387106862}
   hintText: {fileID: 2056827570}
@@ -5685,10 +5707,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -6473,6 +6495,7 @@ MonoBehaviour:
   filledSprite: {fileID: 21300000, guid: 8dfab08e160cad64f869862bb245c757, type: 3}
   emptySprite: {fileID: 21300000, guid: 480f0b856c504b14996a311f17d989b8, type: 3}
   slotId: 
+  placeSound: {fileID: 0}
 --- !u!61 &884297596
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6890,7 +6913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a6cc1d4d23add45b9a511779410e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4.5
+  speed: 5
 --- !u!50 &921686492
 Rigidbody2D:
   serializedVersion: 4
@@ -7176,6 +7199,8 @@ MonoBehaviour:
   nextButton: {fileID: 2033192902}
   endingMessages:
   - "\u6211\u505A\u4E86\u4E00\u4E2A\u597D\u957F\u597D\u957F\u7684\u68A6..."
+  - "\u68A6\u91CC\u7684\u6211\u7761\u4E86\u5F88\u4E45\u5F88\u4E45\u3002"
+  - "\u6211\u60F3\u9192\u8FC7\u6765\uFF0C\u53EF\u662F\u773C\u76AE\u597D\u91CD\uFF0C\u50CF\u7F1D\u4F4F\u4E86\u4E00\u6837\u3002"
   - "\u68A6\u91CC\u6709\u767D\u8272\u7684\u623F\u95F4\uFF0C"
   - "\u6709\u9ED1\u9ED1\u7684\u8DEF\uFF0C"
   - "\u6709\u5F88\u53EF\u6015\u7684\u5C4B\u5B50..."
@@ -7183,8 +7208,18 @@ MonoBehaviour:
   - "\u5979\u8DDF\u6211\u8BF4\uFF0C\u6211\u8BE5\u600E\u4E48\u505A."
   - "\u540E\u6765\u6211\u53C8\u8D70\u4E86\u597D\u4E45,\u8D70\u5230\u4E00\u4E2A\u75C5\u623F."
   - "\u5E8A\u4E0A\u8EBA\u7740\u4E00\u4E2A\u4EBA\uFF0C\u7A7F\u7740\u8DDF\u6211\u4E00\u6837\u7684\u7761\u8863."
-  - "\u8FB9\u4E0A\u5750\u7740\u7684\uFF0C\u662F\u4F60\uFF0C\u5988\u5988"
-  - "\u4E00\u76F4\u90FD\u662F\u4F60\uFF0C\u5BF9\u4E0D\u5BF9\uFF1F"
+  - "\u5979\u7761\u7740\u4E86\uFF0C\u4E00\u76F4\u4E0D\u9192\u3002"
+  - "\u5E8A\u8FB9\u5750\u7740\u4E00\u4E2A\u4EBA\u3002"
+  - "\u5C31\u90A3\u4E48\u770B\u7740\u6211\u3002\u770B\u4E86\u5F88\u4E45\u5F88\u4E45\u3002"
+  - "\u8FB9\u4E0A\u5750\u7740\u7684\uFF0C\u662F\u4F60\uFF0C"
+  - "\u68A6\u91CC\u5E2E\u6211\u627E\u8DEF\u7684\u90A3\u4E2A\u4EBA\uFF0C\u662F\u4F60."
+  - "\u6700\u96BE\u53D7\u7684\u65F6\u5019\u4E00\u6B65\u4E5F\u6CA1\u8D70\u5F00\u7684\u4EBA\uFF0C\u4E5F\u4E00\u76F4\u662F\u4F60,"
+  - "\u4E00\u76F4\u90FD\u662F\u4F60\uFF0C\u5988\u5988\uFF0C\u5BF9\u4E0D\u5BF9\uFF1F"
+  openSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
+  slotFillSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
+  unlockSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
+  closeSound: {fileID: 8300000, guid: af54ce3b0a1b5224db6a894c4523f74a, type: 3}
+  buttonClickSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
 --- !u!114 &992052591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8281,6 +8316,7 @@ MonoBehaviour:
   filledSprite: {fileID: 21300000, guid: f15e3a2d8bb93ed4d97c932991f7a808, type: 3}
   emptySprite: {fileID: 21300000, guid: 5f8ad23eeeececb4d88cb096c57b36eb, type: 3}
   slotId: RedSlot
+  placeSound: {fileID: 0}
 --- !u!1 &1171419366
 GameObject:
   m_ObjectHideFlags: 0
@@ -8396,6 +8432,7 @@ MonoBehaviour:
   filledSprite: {fileID: 21300000, guid: a2311f3768c579449932f9b29808bf6d, type: 3}
   emptySprite: {fileID: 21300000, guid: b278192aba0a5614da58b7b83df8f0a1, type: 3}
   slotId: 
+  placeSound: {fileID: 0}
 --- !u!61 &1171900191
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9127,6 +9164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: "\u788E\u77F3\u5757"
+  pickupSound: {fileID: 0}
   pickupHint: "\u62FE\u53D6\u5230\u788E\u77F3\u5757"
 --- !u!61 &1220787338
 BoxCollider2D:
@@ -9266,6 +9304,7 @@ MonoBehaviour:
   filledSprite: {fileID: 21300000, guid: 322e66785040d5c44907c28448b8c609, type: 3}
   emptySprite: {fileID: 21300000, guid: 16d6653871fd2754d8dacb92a3fbf208, type: 3}
   slotId: 
+  placeSound: {fileID: 0}
 --- !u!61 &1236204131
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10537,6 +10576,7 @@ MonoBehaviour:
   filledSprite: {fileID: 21300000, guid: 558f44210cface447825167a5a03ed34, type: 3}
   emptySprite: {fileID: 21300000, guid: 5554199bbe9e7a343b09d3f8018cb72a, type: 3}
   slotId: 
+  placeSound: {fileID: 0}
 --- !u!61 &1444107380
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10754,6 +10794,7 @@ MonoBehaviour:
   filledSprite: {fileID: 21300000, guid: d270d8c62fb597940bc7d4e63ea12178, type: 3}
   emptySprite: {fileID: 21300000, guid: 2104107c99f7d3e48baa57c343987bbd, type: 3}
   slotId: 
+  placeSound: {fileID: 0}
 --- !u!61 &1465724428
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11203,6 +11244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: "\u94DC\u94A5\u5319"
+  pickupSound: {fileID: 0}
   pickupHint: "\u83B7\u5F97\u94DC\u94A5\u5319"
 --- !u!1 &1549073247
 GameObject:
@@ -11740,6 +11782,7 @@ MonoBehaviour:
   filledSprite: {fileID: 21300000, guid: 3b9f6b9102e47264c9c24ba54d49a843, type: 3}
   emptySprite: {fileID: 21300000, guid: 28be7984408c76d44a40973f70217507, type: 3}
   slotId: GoldSlot
+  placeSound: {fileID: 0}
 --- !u!1 &1613072895
 GameObject:
   m_ObjectHideFlags: 0
@@ -12005,6 +12048,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   digitalLayout: {fileID: 1714867644}
   passwordDisplay: {fileID: 1477648771}
+  numberClickSound: {fileID: 8300000, guid: 6dfb306ff61135c459f651dd54f74936, type: 3}
+  deleteSound: {fileID: 8300000, guid: 4782d9bfec999f243acdb50b0b6078b3, type: 3}
+  confirmSound: {fileID: 8300000, guid: 6dfb306ff61135c459f651dd54f74936, type: 3}
+  closeSound: {fileID: 8300000, guid: af54ce3b0a1b5224db6a894c4523f74a, type: 3}
+  errorSound: {fileID: 8300000, guid: c36392337419000469e5115a0331c707, type: 3}
+  successSound: {fileID: 8300000, guid: d289973d481c6c44da9fd2a31a7802b6, type: 3}
 --- !u!1 &1628024840
 GameObject:
   m_ObjectHideFlags: 0
@@ -12764,6 +12813,18 @@ PrefabInstance:
       propertyPath: currentPaper
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012848874552, guid: 3b11136cfd0d23540940791a20f3e1de, type: 3}
+      propertyPath: bookOpenSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 562b2aa3688a5ae43b4996d617001e32, type: 3}
+    - target: {fileID: 114000012848874552, guid: 3b11136cfd0d23540940791a20f3e1de, type: 3}
+      propertyPath: pageFlipSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 562b2aa3688a5ae43b4996d617001e32, type: 3}
+    - target: {fileID: 114000012848874552, guid: 3b11136cfd0d23540940791a20f3e1de, type: 3}
+      propertyPath: bookCloseSound
+      value: 
+      objectReference: {fileID: 8300000, guid: af54ce3b0a1b5224db6a894c4523f74a, type: 3}
     - target: {fileID: 114000012848874552, guid: 3b11136cfd0d23540940791a20f3e1de, type: 3}
       propertyPath: EndFlippingPaper
       value: 4
@@ -13791,6 +13852,7 @@ MonoBehaviour:
   filledSprite: {fileID: 21300000, guid: 66594f8c27781c9428413a14ca3d0b8f, type: 3}
   emptySprite: {fileID: 21300000, guid: 33832e6ff2fea214198491708671aac3, type: 3}
   slotId: 
+  placeSound: {fileID: 0}
 --- !u!61 &1828480833
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13975,6 +14037,11 @@ MonoBehaviour:
   endingText: {fileID: 0}
   nextButton: {fileID: 0}
   endingMessages: []
+  openSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
+  slotFillSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
+  unlockSound: {fileID: 8300000, guid: 6dfb306ff61135c459f651dd54f74936, type: 3}
+  closeSound: {fileID: 8300000, guid: af54ce3b0a1b5224db6a894c4523f74a, type: 3}
+  buttonClickSound: {fileID: 8300000, guid: 57d6613d802c27c478d8b319bb715e36, type: 3}
 --- !u!1 &1870322002
 GameObject:
   m_ObjectHideFlags: 0
@@ -14179,6 +14246,7 @@ MonoBehaviour:
   filledSprite: {fileID: 21300000, guid: 14b7e2e6cb1714149a33f4d7bd594052, type: 3}
   emptySprite: {fileID: 21300000, guid: a8dc918138e994648843d1c0fd3f0f3a, type: 3}
   slotId: 
+  placeSound: {fileID: 0}
 --- !u!61 &1888460442
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15616,6 +15684,7 @@ MonoBehaviour:
   filledSprite: {fileID: 21300000, guid: e4c654401603f80498badc38bc49b1a1, type: 3}
   emptySprite: {fileID: 21300000, guid: e0ce0d57334524742921e31f929c0126, type: 3}
   slotId: 
+  placeSound: {fileID: 0}
 --- !u!61 &2097807994
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15751,6 +15820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: "\u7EA2\u8272\u788E\u7247"
+  pickupSound: {fileID: 0}
   pickupHint: "\u62FE\u53D6\u5230\u7EA2\u8272\u788E\u7247"
 --- !u!61 &2105678934
 BoxCollider2D:
@@ -15886,6 +15956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: "\u91D1\u8272\u788E\u7247"
+  pickupSound: {fileID: 0}
   pickupHint: "\u62FE\u53D6\u5230\u91D1\u8272\u788E\u7247"
 --- !u!114 &2133696168
 MonoBehaviour:

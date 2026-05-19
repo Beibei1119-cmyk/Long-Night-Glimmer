@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;  // 添加这行
 
 public class ComboLockPanel : MonoBehaviour
 {
@@ -18,15 +19,51 @@ public class ComboLockPanel : MonoBehaviour
     public Button nextButton;           // 下一句按钮
     public List<string> endingMessages;  // 多条结束文字
 
+    [Header("音效")]
+    public AudioClip openSound;         // 打开面板音效
+    public AudioClip slotFillSound;     // 凹槽填满音效
+    public AudioClip unlockSound;       // 解锁成功音效
+    public AudioClip closeSound;        // 关闭面板音效
+    public AudioClip buttonClickSound;  // 按钮点击音效
+
     private int currentLineIndex = 0;
+    private AudioSource audioSource;
+
 
     private void Start()
     {
         gameObject.SetActive(false);
+
+        // 初始化 AudioSource
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+            audioSource.volume = 0.8f;
+        }
+        // ========== 强制启用 AudioSource ==========
+        audioSource.playOnAwake = false;
+        audioSource.volume = 0.8f;
+        audioSource.enabled = true;  // ← 关键：确保启用
+        // =========================================
+
     }
+
+    // 统一播放音效的方法
+    //private void PlaySound(AudioClip clip)
+    //{
+    //    if (clip != null && audioSource != null)
+    //    {
+    //        audioSource.PlayOneShot(clip);
+    //    }
+    //}
 
     public void Open(InteractableObject box)
     {
+        //// 播放打开音效
+        //PlaySound(openSound);
+
         targetBox = box;
         LoadAllSlots();
         gameObject.SetActive(true);
@@ -34,12 +71,19 @@ public class ComboLockPanel : MonoBehaviour
 
     public void OnSlotFilled()
     {
+        //// 播放凹槽填满音效
+        //PlaySound(slotFillSound);
+
         foreach (var slot in slots)
         {
             if (!slot.IsFilled()) return;
         }
 
         Debug.Log($"所有凹槽已满，准备解锁，targetBox={targetBox?.name}");
+
+        //// 播放解锁音效
+        //PlaySound(unlockSound);
+
         if (targetBox != null)
         {
             Debug.Log("调用 targetBox.Unlock()");
@@ -56,6 +100,9 @@ public class ComboLockPanel : MonoBehaviour
 
     public void Close()
     {
+       //// 播放关闭音效
+       // PlaySound(closeSound);
+
         gameObject.SetActive(false);
     }
 
@@ -93,13 +140,29 @@ public class ComboLockPanel : MonoBehaviour
         }
         else
         {
-            // 所有文字显示完毕，关闭面板
             endingPanel.SetActive(false);
-            // 可选：返回主菜单
-            // SceneManager.LoadScene("MainMenu");
+
+            // 使用全局的 UIManager 来启动协程（UIManager 不会被销毁）
+            UIManager.Instance.StartCoroutine(ReturnToMainMenuCoroutine());
         }
     }
 
+    private IEnumerator ReturnToMainMenuCoroutine()
+    {
+
+        // ========== 停止当前场景的音乐 ==========
+        AudioManager.Instance?.StopMusic();  // 如果有 AudioManager
+        // ====================================
+        yield return null;
+
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        yield return SceneManager.UnloadSceneAsync(currentScene);
+
+        SceneManager.LoadScene("MainMenu");
+
+        Debug.Log($"卸载 {currentScene}，返回主菜单");
+    }
     private void LoadAllSlots()
     {
         if (targetBox == null) return;

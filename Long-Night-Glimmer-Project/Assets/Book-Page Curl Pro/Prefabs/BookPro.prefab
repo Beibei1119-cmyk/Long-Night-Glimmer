@@ -562,6 +562,9 @@ MonoBehaviour:
       m_Calls: []
   StartFlippingPaper: 0
   EndFlippingPaper: 3
+  pageFlipSound: {fileID: 0}
+  bookOpenSound: {fileID: 0}
+  bookCloseSound: {fileID: 0}
 --- !u!1 &1000011901245788
 GameObject:
   m_ObjectHideFlags: 0

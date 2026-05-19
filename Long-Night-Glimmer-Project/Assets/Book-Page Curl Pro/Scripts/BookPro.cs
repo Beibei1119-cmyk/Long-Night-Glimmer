@@ -10,6 +10,8 @@ public enum FlipMode
 }
 public class BookPro : MonoBehaviour
 {
+
+
     Canvas canvas;
     [SerializeField]
     RectTransform BookPanel;
@@ -88,12 +90,36 @@ public class BookPro : MonoBehaviour
     /// <summary>
     /// should be true when the page tween forward or backward after release
     /// </summary>
-    bool tweening = false; 
+    bool tweening = false;
+
+
+    [Header("音效")]
+    public AudioClip pageFlipSound;     // 翻页音效
+    public AudioClip bookOpenSound;     // 打开书本音效
+    public AudioClip bookCloseSound;    // 关闭书本音效
+
+    private AudioSource audioSource;
+
 
     // Use this for initialization
     void Start()
     {
+        // 初始化 AudioSource
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+            audioSource.volume = 0.7f;
+        }
+
+        // 播放打开书本音效
+        PlaySound(bookOpenSound);
+
         Canvas[] c = GetComponentsInParent<Canvas>();
+
+
+
         if (c.Length > 0)
             canvas = c[c.Length - 1];
         else
@@ -126,6 +152,17 @@ public class BookPro : MonoBehaviour
         LeftPageShadow.rectTransform.sizeDelta = new Vector2(pageWidth, shadowPageHeight);
         LeftPageShadow.rectTransform.pivot = new Vector2(1, (pageWidth / 2) / shadowPageHeight);
     }
+
+    // 统一播放音效的方法
+    private void PlaySound(AudioClip clip)
+    {
+        if (clip != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
+    }
+
+
 
     /// <summary>
     /// transform point from global (world-space) to local space
@@ -405,6 +442,9 @@ public class BookPro : MonoBehaviour
     /// </summary>
     public void Flip()
     {
+        // 播放翻页音效
+        PlaySound(pageFlipSound);
+
         pageDragging = false;
 
         if (mode == FlipMode.LeftToRight)
@@ -420,6 +460,14 @@ public class BookPro : MonoBehaviour
         if (OnFlip != null)
             OnFlip.Invoke();
     }
+
+    // ========== 添加这个方法 ==========
+    public void CloseBook()
+    {
+        PlaySound(bookCloseSound);
+        gameObject.SetActive(false);
+    }
+    // =================================
 
     public void TweenForward()
     {
@@ -694,11 +742,27 @@ public static class BookUtility
     //新增关闭按钮
     public class BookProClose : MonoBehaviour
     {
+        private BookPro bookPro;
+
+        void Start()
+        {
+            bookPro = GetComponentInParent<BookPro>();
+            Button btn = GetComponent<Button>();
+            if (btn != null)
+            {
+                btn.onClick.AddListener(CloseBook);
+            }
+        }
+
         public void CloseBook()
         {
-            gameObject.SetActive(false);
+            if (bookPro != null)
+                bookPro.CloseBook();
+            else
+                gameObject.SetActive(false);
         }
     }
 
+ 
 
 }

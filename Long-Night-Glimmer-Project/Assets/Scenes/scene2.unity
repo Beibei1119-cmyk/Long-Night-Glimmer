@@ -666,6 +666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: "\u7269\u54C1"
+  pickupSound: {fileID: 0}
   pickupHint: 
 --- !u!1 &450392805
 GameObject:

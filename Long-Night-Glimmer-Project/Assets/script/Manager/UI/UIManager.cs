@@ -1,6 +1,7 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using System.Collections;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
@@ -9,6 +10,9 @@ public class UIManager : MonoBehaviour
     //public Sprite keyDragSprite;  // 钥匙拖拽时的图片
     //public Sprite gemDragSprite;  // 发夹拖拽时的图片
 
+    [Header("音效")]
+    public AudioClip buttonClickSound;  // 按钮点击音效
+    private AudioSource audioSource;    // 音效播放器
 
     [Header("内部面板")]
     public InsidePanel insidePanel;  // 改成 InsidePanel 类型
@@ -52,6 +56,23 @@ public class UIManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            // 初始化音效播放器
+            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+                audioSource.playOnAwake = false;
+                audioSource.volume = 0.8f;
+            }
+
+            // ========== 强制设置这些属性 ==========
+            audioSource.playOnAwake = false;
+            audioSource.volume = 1f;
+            audioSource.mute = false;      // 确保没被静音
+            audioSource.enabled = true;     // 确保启用
+           // ===================================
+
         }
         else
         {
@@ -59,18 +80,46 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    // ========== 全局点击音效方法 ==========
+    public void PlayButtonClick()
+    {
+        Debug.Log($"PlayButtonClick 被调用 - 音效文件: {buttonClickSound?.name}, AudioSource: {audioSource != null}");
+
+        if (buttonClickSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(buttonClickSound);
+            Debug.Log("音效应该正在播放");
+        }
+        else
+        {
+            if (buttonClickSound == null) Debug.LogError("buttonClickSound 为空！请在 Inspector 中拖入音效文件");
+            if (audioSource == null) Debug.LogError("audioSource 为空！");
+        }
+    }
+    // ===================================
+
+
     private void Start()
     {
         if (hintPanel != null) hintPanel.SetActive(false);
 
         if (leftButton != null)
-            leftButton.onClick.AddListener(() => InventoryManager.Instance.SelectPrevious());
+        {
+            leftButton.onClick.AddListener(() => {
+                PlayButtonClick();  // 添加这行
+                InventoryManager.Instance.SelectPrevious();
+            });
+        }
 
         if (rightButton != null)
-            rightButton.onClick.AddListener(() => InventoryManager.Instance.SelectNext());
+        {
+            rightButton.onClick.AddListener(() => {
+                PlayButtonClick();  // 添加这行
+                InventoryManager.Instance.SelectNext();
+            });
+        }
 
         RefreshHotbar();
-
     }
 
 
@@ -113,6 +162,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowComboLockPanel(InteractableObject target)
     {
+        PlayButtonClick();  // 添加音效
         if (comboLockPanel != null)
         {
             comboLockPanel.Open(target);  // 调用 Open 方法传递箱子
@@ -121,6 +171,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowComboLockPanel_BoxB(InteractableObject target)
     {
+        PlayButtonClick();  // 添加音效
         if (ComboLockPanel_BoxB != null)
             ComboLockPanel_BoxB.Open(target);
     }
@@ -128,6 +179,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowComboLockPanel_BoxC(InteractableObject target)
     {
+        PlayButtonClick();  // 添加音效
         if (comboLockPanel_BoxC != null)
             comboLockPanel_BoxC.Open(target);
     }
@@ -135,6 +187,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowComboLockPanel_BoxD(InteractableObject target)
     {
+        PlayButtonClick();  // 添加音效
         if (comboLockPanel_BoxD != null)
             comboLockPanel_BoxD.Open(target);
     }
@@ -219,6 +272,7 @@ public class UIManager : MonoBehaviour
     // ========== 显示密码面板 ==========
     public void ShowPasswordPanel(InteractableObject target)
     {
+        PlayButtonClick();  // 添加音效
         Debug.Log($"ShowPasswordPanel 被调用, target={target?.name}");
         if (passwordPanel != null)
         {
@@ -248,4 +302,32 @@ public class UIManager : MonoBehaviour
             insidePanel.Hide();
     }
 
+
+    public void ReturnToMainMenu()
+    {
+        StartCoroutine(ReturnToMainMenuCoroutine());
+    }
+
+    private IEnumerator ReturnToMainMenuCoroutine()
+    {
+        // ========== 隐藏场景五的音乐物体 ==========
+        GameObject audioManager = GameObject.Find("AudioManager");
+        if (audioManager != null)
+        {
+            audioManager.SetActive(false);  // 隐藏
+                                            // 或者 Destroy(audioManager); // 销毁
+        }
+        // ======================================
+
+        yield return null;
+
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        yield return SceneManager.UnloadSceneAsync(currentScene);
+
+        SceneManager.LoadScene("MainMenu");
+
+        Debug.Log($"卸载 {currentScene}，返回主菜单");
+
+    }
 }

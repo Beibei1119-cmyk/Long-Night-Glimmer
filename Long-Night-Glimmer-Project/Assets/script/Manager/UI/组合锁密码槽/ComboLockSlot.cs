@@ -15,6 +15,10 @@ public class ComboLockSlot : MonoBehaviour
     private bool isFilled = false;
     private ComboLockPanel parentPanel;  // 添加父面板引用
 
+    [Header("音效")]
+    public AudioClip placeSound;  // 放入物品音效
+
+
     void Start()
     {
         slotImage = GetComponent<Image>();
