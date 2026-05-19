@@ -633,6 +633,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startButton: {fileID: 39348904}
   quitButton: {fileID: 103663703}
+  backgroundMusic: {fileID: 8300000, guid: 00d6b73c1b8b3b54f9e680b2737a3882, type: 3}
+  buttonClickSound: {fileID: 8300000, guid: 79057f06e6e0bf34fb1edf3d44e86613, type: 3}
 --- !u!1 &959953264
 GameObject:
   m_ObjectHideFlags: 0
