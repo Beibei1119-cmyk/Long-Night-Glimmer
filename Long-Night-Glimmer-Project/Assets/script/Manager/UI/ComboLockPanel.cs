@@ -1,4 +1,7 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
 public class ComboLockPanel : MonoBehaviour
 {
@@ -8,6 +11,15 @@ public class ComboLockPanel : MonoBehaviour
     [Header("凹槽列表")]
     public ComboLockSlot[] slots;
 
+    [Header("结束界面")]
+    public bool showEndingOnComplete = false;
+    public GameObject endingPanel;
+    public Text endingText;
+    public Button nextButton;           // 下一句按钮
+    public List<string> endingMessages;  // 多条结束文字
+
+    private int currentLineIndex = 0;
+
     private void Start()
     {
         gameObject.SetActive(false);
@@ -16,17 +28,7 @@ public class ComboLockPanel : MonoBehaviour
     public void Open(InteractableObject box)
     {
         targetBox = box;
-        //// 重置所有凹槽状态
-        //foreach (var slot in slots)
-        //{
-        //    slot.ResetSlot();
-        //}
-
-//===========================================
-        // 改为：加载保存的状态，而不是重置
         LoadAllSlots();
-//==============================================
-
         gameObject.SetActive(true);
     }
 
@@ -37,14 +39,18 @@ public class ComboLockPanel : MonoBehaviour
             if (!slot.IsFilled()) return;
         }
 
-        // 所有凹槽都满了，解锁箱子
         Debug.Log($"所有凹槽已满，准备解锁，targetBox={targetBox?.name}");
         if (targetBox != null)
         {
             Debug.Log("调用 targetBox.Unlock()");
             targetBox.Unlock();
         }
-        // 关闭面板
+
+        if (showEndingOnComplete)
+        {
+            ShowEnding();
+        }
+
         gameObject.SetActive(false);
     }
 
@@ -53,9 +59,47 @@ public class ComboLockPanel : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    private void ShowEnding()
+    {
+        if (endingPanel != null)
+        {
+            currentLineIndex = 0;
+            endingPanel.SetActive(true);
+            UpdateEndingText();
 
-    //======================================================
-    // 新增：加载所有凹槽的保存状态
+            if (nextButton != null)
+            {
+                nextButton.onClick.RemoveAllListeners();
+                nextButton.onClick.AddListener(NextEndingLine);
+            }
+        }
+    }
+
+    private void UpdateEndingText()
+    {
+        if (endingText != null && endingMessages.Count > 0)
+        {
+            endingText.text = endingMessages[currentLineIndex];
+        }
+    }
+
+    private void NextEndingLine()
+    {
+        currentLineIndex++;
+
+        if (currentLineIndex < endingMessages.Count)
+        {
+            UpdateEndingText();
+        }
+        else
+        {
+            // 所有文字显示完毕，关闭面板
+            endingPanel.SetActive(false);
+            // 可选：返回主菜单
+            // SceneManager.LoadScene("MainMenu");
+        }
+    }
+
     private void LoadAllSlots()
     {
         if (targetBox == null) return;
@@ -72,6 +116,4 @@ public class ComboLockPanel : MonoBehaviour
             slot.LoadState(isFilled);
         }
     }
-    //======================================================
-
 }

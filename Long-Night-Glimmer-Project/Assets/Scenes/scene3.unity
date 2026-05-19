@@ -2193,6 +2193,8 @@ GameObject:
   m_Component:
   - component: {fileID: 858306297}
   - component: {fileID: 858306296}
+  - component: {fileID: 858306299}
+  - component: {fileID: 858306298}
   m_Layer: 0
   m_Name: "\u4FA7\u706F"
   m_TagString: Untagged
@@ -2267,6 +2269,73 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &858306298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858306295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6858eed78e4e0654784acb9ded90f7e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - speakerName: "\u672A\u77E5"
+    content: "\u8BD5\u7740\u627E\u627E\u7A97\u5E18\u8FB9\u7684\u201C\u5899\u201D\u4E0A\u6709\u4EC0\u4E48\u7EBF\u7D22"
+    isLeft: 0
+  - speakerName: "\u5973\u5B69"
+    content: "\u592A\u597D\u4E86\uFF0C\u4F60\u8FD8\u5728"
+    isLeft: 1
+  - speakerName: "\u672A\u77E5"
+    content: "\u6211\u8BF4\u8FC7\u6211\u4F1A\u4E00\u76F4\u5728"
+    isLeft: 0
+--- !u!61 &858306299
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858306295}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.054834843, y: -0.17233753}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.84, y: 2.94}
+    newSize: {x: 2.84, y: 2.94}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.9496698, y: 3.2846756}
+  m_EdgeRadius: 0
 --- !u!1 &893089658
 GameObject:
   m_ObjectHideFlags: 0
